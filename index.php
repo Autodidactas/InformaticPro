@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta name="description" content="" />
