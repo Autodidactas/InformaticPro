@@ -7,3 +7,8 @@ InformaticPro
 ####Web Master
 [Felix Barros](http://twitter.com/felixricarb "Felix Barros")
 
+####Front-end
+[Hosmel Quintana](http://twitter.com/hosmelQ "Hosmel Quintana ")
+
+
+
