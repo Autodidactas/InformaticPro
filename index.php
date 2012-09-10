@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="author" content="Informatic Pro" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-<meta charset="utf-8"/>
-<title>Inicio</title>
+	<meta charset="utf-8" />
+	<title>Inicio</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Informatic Pro" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<link rel="stylesheet" href="css/styles.css"/>
+	<link rel="stylesheet" href="css/styles.css"/>
 </head>
+
 <body>
-	<div id="page">
+	<div id="page"><!-- PAGE -->
 		<header>
 			<hgroup>
 				<h1>
@@ -125,6 +126,6 @@
 		</section>
 		<footer>
 		</footer>
-	</div>
+	</div><!-- /PAGE -->
 </body>
 </html>
