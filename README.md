@@ -1,6 +1,6 @@
 InformaticPro
 ========
 
-***Diseñandor Web
+###Diseñandor Web
 [Gustavo Infante](@Geimsz "Gustavo Infante")
 
