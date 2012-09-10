@@ -40,7 +40,7 @@
 				<div id="minutes">12<span>Minutos</span></div>
 				<div id="seconds">08<span>Segundos</span></div>
 			<div id="next_workshop">
-				< Proximo Taller>
+				< Proximo Taller >
 			</div>
 			<aside id="social_networks">
 				<ul>
