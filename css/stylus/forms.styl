@@ -1,0 +1,155 @@
+.form
+    background #fff
+    border-top  1px solid #f3f3f3
+    pie()
+    border-radius(5px)
+    box-shadow(0 1px 2px #aaa)
+    margin 0 auto
+
+fieldset
+    border-bottom 1px solid #ddd
+    padding 20px 20px 0 20px
+
+.form-row
+    margin-bottom 20px
+    &.last
+        margin-bottom 10px
+
+.form-item
+    display(inline-block)
+    margin-right 4%
+    position relative
+    vertical-align top
+    &.quarter
+        width 23%
+    &.half
+        width 48%
+    &.three-quarters
+        width 73%
+    &.full
+        display(inline-block)
+        margin-right 0
+        width 100%
+    &.last
+        margin 0 0 0 -4px
+
+.form-footer
+    background #f5f5f5
+    border-radius(0 0 5px 5px)
+    margin-bottom 0
+    padding 15px 20px
+    position relative
+    .link
+    .required
+        font-size 0.9em
+        absolute bottom 18px
+        right 25px
+    .required
+        color #f00
+
+label
+    cursor pointer
+
+input
+textarea
+select
+    border 1px solid #aaa
+    border-radius(3px)
+    box-shadow(inset 0 1px 3px #eee)
+    box-sizing()
+    color #444
+    font-size 0.9em
+    margin 0    
+    outline 0
+    padding 4px 5px
+    width 100%
+    &:focus
+        box-shadow(inset 0 1px 3px #ddd)
+    &:focus ~ .form-tool-tip
+        display(block)
+
+textarea
+    height 120px
+    font-size 1em
+    padding 5px
+
+input[type=radio]
+input[type=checkbox]
+    width auto
+
+input[type=file]
+    cursor pointer
+    padding 2px
+
+input[type=submit]
+    cursor pointer
+    width auto
+
+.note
+    color #999
+    font-size 0.745em
+
+// tool-tip
+.form-tool-tip
+    background #fff
+    border 1px solid #bbb
+    bottom 130%
+    border-radius(4px)
+    box-shadow(2px 2px 5px #ddd)
+    color #999
+    display(none)
+    font-size 0.84em
+    padding 8px
+    absolute left 0
+    width 200px
+    z-index 20
+    &:before
+    &:after
+        border-style solid
+        border-width w = 10px
+        content ""
+        margin-left -(w)
+        absolute left 20%
+    &:before
+        border-color #aaa transparent transparent transparent
+        bottom -20px
+    &:after
+        border-color #fff transparent transparent transparent
+        bottom -19px
+    &.tool-tip-textarea
+        bottom 110%
+
+.form-error
+    background #f00
+    background rgba(#f00, 0.55)
+    border 1px solid #f00
+    border-radius(3px)
+    box-shadow(inset 0 1px 1px #f00)
+    color #fff
+    font-size 0.8em
+    font-weight 600
+    letter-spacing 1px
+    padding 0 4px
+    absolute right 4px top 12.5%
+
+// tablas
+table
+    background #fff
+    width 100%
+tr
+    border-bottom 1px solid #ddd
+    &:hover
+        background #f9f9f9
+th
+    background #33383d
+    color #fff
+    font 1.2em ubuntum
+    padding 8px
+    text-align left
+td
+    color #555
+    padding 8px
+    .opera &
+        padding 2px 8px 8px 8px
+    .lt-ie9 &
+        relative top 0 left 0
