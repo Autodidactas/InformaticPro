@@ -20,6 +20,10 @@ class VideosAdmin(admin.ModelAdmin):
 	list_filter = ('usuario','categoria','curso')
 	date_hierarchy = 'fecha'
 
+	class Media:
+		js = ('js/tiny_mce/tiny_mce.js',
+              'js/basic_config.js',)
+
 admin.site.register(Videos, VideosAdmin)
 admin.site.register(Categoria)
 admin.site.register(Cursos)
