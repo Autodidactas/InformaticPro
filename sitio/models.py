@@ -50,6 +50,9 @@ class Social(models.Model):
 	def __unicode__(self):
 		return u"%s - %s" % (self.red.nombre, self.usuario.user.username)
 
+	class Meta:
+		verbose_name_plural = "Social"
+		
 class Videos(models.Model):
 	titulo = models.CharField(max_length=200)
 	fecha = models.DateField()
