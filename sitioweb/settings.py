@@ -151,3 +151,5 @@ LOGGING = {
         },
     }
 }
+AUTH_PROFILE_MODULE = 'sitio.UserProfile'
+LOGIN_REDIRECT_URL = '/'
