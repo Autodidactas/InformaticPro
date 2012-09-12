@@ -1,6 +1,9 @@
 InformaticPro
 ========
 
+####Community manager
+[Belky Morales](http://twitter.com/Belkymf "Belky Morales")
+
 ####Diseñandor Web
 [Gustavo Infante](http://twitter.com/Geimsz "Gustavo Infante")
 
