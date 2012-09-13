@@ -55,6 +55,7 @@ class Social(models.Model):
 		
 class Videos(models.Model):
 	titulo = models.CharField(max_length=200)
+	slug = models.CharField(max_length=200)
 	fecha = models.DateField()
 	descripcion = models.TextField('Descripción')
 	url = models.URLField()
@@ -62,9 +63,13 @@ class Videos(models.Model):
 	categoria = models.ForeignKey(Categoria, null=True, blank=True)
 	curso = models.ForeignKey(Cursos, null=True, blank=True)
 	usuario = models.ForeignKey(User)
+	proximo = models.BooleanField()
 
 	def __unicode__(self):
 		return self.titulo
+
+	def get_absolute_url(self):
+		return '/videos/%s/' % (self.slug)
 
 	class Meta:
 		verbose_name_plural = "Videos"
