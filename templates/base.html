@@ -142,11 +142,31 @@ $(function () {
 		</section>
 		<div id="defaultCountdown"></div>
 		<p>charlas sabado</p>
-		{{sabado}}<br>
+		{%for charla in sabado%}
+			Titulo: {{charla.titulo}}<br>
+			Fecha: {{charla.fecha}}<br>
+			Descripción: {{charla.descripcion}}<br>
+			Usuario: {{charla.usuario}}
+		{%endfor%}
+		<br><br>
 		<p>Taller domingo</p>
-		{{domingo}}<br>
+		{%for taller in domingo%}
+			Titulo: {{taller.titulo}}<br>
+			Fecha: {{taller.fecha}}<br>
+			Descripción: {{taller.descripcion}}<br>
+			Usuario: {{taller.usuario}}
+		{%endfor%}
+		<br><br>
 		<p>Lista de curso</p>
-		{{lista}}
+		{%for curso in lista%}
+			{% for a in curso %}
+				Titulo: {{a.titulo}}<br>
+				Fecha: {{a.fecha}}<br>
+				Descripción: {{a.descripcion|truncatewords:4}}<br>
+				Usuario: {{a.usuario}}<br>
+			{% endfor %}
+		{%endfor%}
+		<br><br>
 
 		<footer>
 			Pie de pagina!!
