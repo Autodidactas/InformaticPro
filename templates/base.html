@@ -12,42 +12,20 @@
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 	<link rel="stylesheet" href="{{STATIC_URL}}css/styles.css"/>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/jquery.countdown.css"/>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 	<script src="{{STATIC_URL}}js/jquery.countdown.js" type="text/javascript"></script>
 
 	{%block extra_js%}{%endblock%}
-	<script type="text/javascript">
-		$(function(){
-        $('#counter').countdown({
-          image: '{{STATIC_URL}}img/digits.png',
-          startTime: '{{fecha_actual}}'
-        });
-      });
-	</script>
- <style type="text/css">
-      br { clear: both; }
-      .cntSeparator {
-        font-size: 54px;
-        margin: 10px 7px;
-        color: #000;
-      }
-      .desc { margin: 7px 3px; }
-      .desc div {
-        float: left;
-        font-family: Arial;
-        width: 70px;
-        margin-right: 65px;
-        font-size: 13px;
-        font-weight: bold;
-        color: #fff;
-        
-      }
-      .reloj {
-      	position:absolute;
-        top:230px;
-        right:-16px;
-      }
-    </style>
+	
+<script type="text/javascript">
+$(function () {
+	var austDay = new Date();
+	austDay = new Date(austDay.getFullYear(), {{fecha_2|date:'m'}} -1, {{fecha_2|date:'d'}});
+	$('#defaultCountdown').countdown({until: austDay});
+});
+</script>
+
 </head>
 
 <body>
@@ -72,15 +50,11 @@
 			<time>
 				Domingo 7:00pm Nic/ 8:00pm Mexico
 			</time>
-			<div class="reloj">
-				<div id="counter"></div>
-  				<div class="desc">
-    				<div>Días</div>
-    				<div>Horas</div>
-   	 				<div>Minutos</div>
-    				<div>Segundos</div>
-  				</div>
-  			</div>
+				<div id="day">07 : <span>Dias</span></div>
+				<div id="hours">05 : <span>Horas</span></div>
+				<div id="minutes">12 : <span>Minutos</span></div>
+				<div id="seconds">08<span>Segundos</span></div>
+
 			<div id="next_workshop">
 				< Proximo Taller >
 			</div>
@@ -166,6 +140,7 @@
 				</a>
 			</article>
 		</section>
+		<div id="defaultCountdown"></div>
 		<p>charlas sabado</p>
 		{{sabado}}<br>
 		<p>Taller domingo</p>

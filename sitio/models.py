@@ -56,7 +56,7 @@ class Social(models.Model):
 class Videos(models.Model):
 	titulo = models.CharField(max_length=200)
 	slug = models.CharField(max_length=200)
-	fecha = models.DateField()
+	fecha = models.DateTimeField()
 	descripcion = models.TextField('Descripción')
 	url = models.URLField()
 	tags = TagAutocompleteField("Tags",help_text='Separar elementos con "," ', null=True, blank=True)
