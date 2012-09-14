@@ -1,3 +1,4 @@
+{% load gravatar %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -25,6 +26,14 @@ $(function () {
 	$('#defaultCountdown').countdown({until: austDay});
 });
 </script>
+
+<style type="text/css" media="screen">
+.gravatar img {
+	height: 42px;
+	width: 42px;
+}
+	
+</style>
 
 </head>
 
@@ -146,7 +155,11 @@ $(function () {
 			Titulo: {{charla.titulo}}<br>
 			Fecha: {{charla.fecha}}<br>
 			Descripción: {{charla.descripcion}}<br>
-			Usuario: {{charla.usuario}}
+			Usuario: <div class="gravatar">
+				<img src="{% gravatar_url charla.usuario.email %}" />
+			</div>{{charla.usuario.email}}
+			
+			
 		{%endfor%}
 		<br><br>
 		<p>Taller domingo</p>
@@ -154,7 +167,9 @@ $(function () {
 			Titulo: {{taller.titulo}}<br>
 			Fecha: {{taller.fecha}}<br>
 			Descripción: {{taller.descripcion}}<br>
-			Usuario: {{taller.usuario}}
+			Usuario: <div class="gravatar">
+				<img src="{% gravatar_url taller.usuario.email %}" />
+			</div>{{taller.usuario}}
 		{%endfor%}
 		<br><br>
 		<p>Lista de curso</p>
@@ -163,7 +178,9 @@ $(function () {
 				Titulo: {{a.titulo}}<br>
 				Fecha: {{a.fecha}}<br>
 				Descripción: {{a.descripcion|truncatewords:4}}<br>
-				Usuario: {{a.usuario}}<br>
+				Usuario: <div class="gravatar">
+				<img src="{% gravatar_url a.usuario.email %}" />
+			</div>{{a.usuario}}<br>
 			{% endfor %}
 		{%endfor%}
 		<br><br>
