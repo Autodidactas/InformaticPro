@@ -16,8 +16,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^$', 'sitio.views.index'),
+    url(r'^sitio/', include('sitio.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
+
 )
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns

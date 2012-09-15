@@ -149,10 +149,12 @@ $(function () {
 				</a>
 			</article>
 		</section>
+		{% block content %}
+			
 		<div id="defaultCountdown"></div>
 		<p>charlas sabado</p>
 		{%for charla in sabado%}
-			Titulo: {{charla.titulo}}<br>
+			Titulo: <a href="{{charla.get_absolute_url}}">{{charla.titulo}}</a> <br>
 			Fecha: {{charla.fecha}}<br>
 			Descripción: {{charla.descripcion}}<br>
 			Usuario: <div class="gravatar">
@@ -164,7 +166,7 @@ $(function () {
 		<br><br>
 		<p>Taller domingo</p>
 		{%for taller in domingo%}
-			Titulo: {{taller.titulo}}<br>
+			Titulo: <a href="{{taller.get_absolute_url}}">{{taller.titulo}}</a> <br>
 			Fecha: {{taller.fecha}}<br>
 			Descripción: {{taller.descripcion}}<br>
 			Usuario: <div class="gravatar">
@@ -175,7 +177,7 @@ $(function () {
 		<p>Lista de curso</p>
 		{%for curso in lista%}
 			{% for a in curso %}
-				Titulo: {{a.titulo}}<br>
+				Titulo: <a href="{{a.get_absolute_url}}">{{a.titulo}}</a> <br>
 				Fecha: {{a.fecha}}<br>
 				Descripción: {{a.descripcion|truncatewords:4}}<br>
 				Usuario: <div class="gravatar">
@@ -184,7 +186,7 @@ $(function () {
 			{% endfor %}
 		{%endfor%}
 		<br><br>
-
+		{% endblock content %}
 		<footer>
 			Pie de pagina!!
 		</footer>

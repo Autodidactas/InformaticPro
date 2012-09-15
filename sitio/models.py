@@ -69,7 +69,7 @@ class Videos(models.Model):
 		return self.titulo
 
 	def get_absolute_url(self):
-		return '/videos/%s/' % (self.slug)
+		return '/sitio/%s/' % (self.slug)
 
 	class Meta:
 		verbose_name_plural = "Videos"
