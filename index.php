@@ -120,17 +120,73 @@
 				</div>				
 				
 			</article><!--end general_new_container-->
-			<h3 id="past_workshops_h3">
-				Talleres pasados
-			</h3>
-			<article class="past_workshops_container">
-				<a href="">
-					<img src="">
-					<div class="past_workshops_h3">
-					Teller de introduccion a Phyton
-					</div>
-				</a>
-			</article>
+			<section id="past_workshops_container">
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+				<article id="tallerp">
+					<a href="">
+						<img src="img/img_video.jpg">
+						<div class="past_workshops_h3">
+							Teller de introduccion a Phyton
+						</div>
+					</a>
+				</article>
+			</section>
+			
 		</section>
 		<footer>
 		</footer>

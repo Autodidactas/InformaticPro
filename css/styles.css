@@ -243,3 +243,36 @@ body{font:normal 100% BrowalliaUPC;background:#353635 url("../img/background.gif
 	width: 45%;
 	z-index: 2;
 }
+#past_workshops_container
+{
+	margin: 0 1.5em;
+}
+#tallerp
+{
+	padding: 0;
+	display: inline-block;
+	margin: 0.4em ;
+	width: 23.25%;
+	height: auto;
+	margin-bottom:-1.9em;
+}
+#tallerp a
+{
+	padding: 0 0 -0.5em 0;
+	color: #333636;
+	text-decoration: none;
+}
+
+#tallerp div
+{
+	background: rgba(255,255,255,0.5);
+	position: relative;
+	float: left;
+	top:-50px;
+	padding: 0.5em 5px;
+}
+
+#tallerp img{
+	position: relative;
+
+}
