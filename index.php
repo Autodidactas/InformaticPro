@@ -71,30 +71,27 @@
 			<div id="info_middle"></div>
 		</header><!-- end header-->
 		<section id="container">
-			<article id="general_new_container">
-				<h2 id="new_talks_title">
-					Charlas de Sábado
-				</h2>
-				<div id="new_talks_time">
-					4:00pm Nic/ 5:00pm Mexico
-				</div>
-				<a id="new_talks_link" href="">
-					Lista de capitulos <span></span>
-				</a>
-
-				<div class="container_video_home">
-					<div id="new_talks_balloon">Nuevo
-					</div>
-					<div>
-						<a href="">
-							<iframe id="charlaSabado" width="100%" height="240px" src="http://www.youtube.com/embed/yA6anvg1ONg" frameborder="0" allowfullscreen></iframe>
-						</a>
-						<div class="shadow_charlaS"></div>
-					</div>
+			<article id="charlas">
+				<div id="titulos">
+					<h2>Charlas de Sábado</h2>
+					<h3>Taller: </h3>
 					
+					<div id="link">
+					<a href="#">Lista de Capitulos <span>></span>
+						</a>	
+					</div>
+				</div>				
+				<div id="videoCharla">	
+					<div id="news_talks_ballon">
+							Nuevo
+					</div>				
+					<a href="">
+						<iframe id="videoSabado" width="100%" height="240px" src="http://www.youtube.com/embed/yA6anvg1ONg" frameborder="0" allowfullscreen></iframe>
+					</a>
+					<div class="shadows_charlaS"></div>
 				</div>
-
 			</article><!--end general_new_container-->
+
 			<article id="general_new_container">
 				<div class="container_video_home">
 					<div class="marco_video_home">
