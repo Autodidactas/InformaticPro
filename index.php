@@ -41,7 +41,7 @@
 				<div id="minutes">12<span>Minutos</span></div>
 				<div id="seconds">08<span>Segundos</span></div>
 			<div id="next_workshop">
-				< Proximo Taller >
+				< Pr&oacute;ximo Taller >
 			</div>
 			<aside id="social_networks">
 				<ul>
@@ -73,7 +73,7 @@
 		<section id="container">
 			<article id="general_new_container">
 				<h2 id="new_talks_title">
-					Charlas de Sabado
+					Charlas de Sábado
 				</h2>
 				<div id="new_talks_time">
 					4:00pm Nic/ 5:00pm Mexico
@@ -81,14 +81,19 @@
 				<a id="new_talks_link" href="">
 					Lista de capitulos <span></span>
 				</a>
-				<span id="new_talks_balloon">
-				</span>
+
 				<div class="container_video_home">
-					<div class="marco_video_home">
-						<a href=""></a>
+					<div id="new_talks_balloon">Nuevo
 					</div>
-					<div class="shadow_marco_video_home"></div>
+					<div>
+						<a href="">
+							<iframe id="charlaSabado" width="100%" height="240px" src="http://www.youtube.com/embed/yA6anvg1ONg" frameborder="0" allowfullscreen></iframe>
+						</a>
+						<div class="shadow_charlaS"></div>
+					</div>
+					
 				</div>
+
 			</article><!--end general_new_container-->
 			<article id="general_new_container">
 				<div class="container_video_home">
