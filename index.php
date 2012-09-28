@@ -74,8 +74,9 @@
 			<article id="charlas">
 				<div id="titulos">
 					<h2>Charlas de Sábado</h2>
-					<h3>Taller: </h3>
-					
+					<div id="new_talks_time">
+						4:00pm Nic/ 5:00pm Mexico
+					</div>					
 					<div id="link">
 					<a href="#">Lista de Capitulos <span>></span>
 						</a>	
@@ -86,33 +87,38 @@
 							Nuevo
 					</div>				
 					<a href="">
-						<iframe id="videoSabado" width="100%" height="240px" src="http://www.youtube.com/embed/yA6anvg1ONg" frameborder="0" allowfullscreen></iframe>
+						<iframe id="videoSabado" width="100%" height="240px" src="http://www.youtube.com/embed/92rBy4uO55U" frameborder="0" allowfullscreen></iframe>
 					</a>
 					<div class="shadows_charlaS"></div>
 				</div>
 			</article><!--end general_new_container-->
 
-			<article id="general_new_container">
-				<div class="container_video_home">
-					<div class="marco_video_home">
-						<a href=""></a>
-					</div>
-					<div class="shadow_marco_video_home"></div>
+			<article id="talleres">
+				<div id="videoTaller">	
+					<div id="news_talks_ballon">
+							Nuevo
+					</div>				
+					<a href="">
+						<iframe id="videoDomingo" width="100%" height="240px" src="http://www.youtube.com/embed/yA6anvg1ONg" frameborder="0" allowfullscreen></iframe>
+					</a>
+					<div class="shadows_taller"></div>
 				</div>
-				<span id="new_workshop_balloon">
-				</span>
-				<h3 class="new_workshop_title">
+				
+				<div id="titulos">
+					<h2>
 					Taller:
-				</h3>
-				<p class="new_workshop_text">
-					Phyton y Django
-				</p>
-				<h3 class="new_workshop_title">
-					Descripcion:
-				</h3>
-				<p class="new_workshop_text">
-					Introduccion al lenguaje de programación mas utilizando el CMS mas famoso de PHYTON.
-				</p>
+					</h2>
+					<p class="new_workshop_text">
+						Phyton y Django
+					</p>
+					<h2>
+						Descripcion:
+					</h2>
+					<p class="new_workshop_text">
+						Introduccion al lenguaje de programación mas utilizando el CMS mas famoso de PHYTON.
+					</p>
+				</div>				
+				
 			</article><!--end general_new_container-->
 			<h3 id="past_workshops_h3">
 				Talleres pasados
