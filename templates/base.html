@@ -1,195 +1,107 @@
 {% load gravatar %}
 <!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="utf-8" />
-	<title>Inicio</title>
-	<meta name="description" content="" />
-	<meta name="keywords" content="" />
-	<meta name="author" content="Informatic Pro" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<!--[if lt IE 9]>
-	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
-	<link rel="stylesheet" href="{{STATIC_URL}}css/styles.css"/>
-	<link rel="stylesheet" href="{{STATIC_URL}}css/jquery.countdown.css"/>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
-	<script src="{{STATIC_URL}}js/jquery.countdown.js" type="text/javascript"></script>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="es"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang="es"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang="es"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="es"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>Autodidact.as</title>
+        <meta name="description" content="Autodidactas es una comunidad informatica." />
+        <meta name="viewport" content="width=device-width" />
 
-	{%block extra_js%}{%endblock%}
-	
-<script type="text/javascript">
-$(function () {
-	var austDay = new Date();
-	austDay = new Date(austDay.getFullYear(), {{fecha_2|date:'m'}} -1, {{fecha_2|date:'d'}});
-	$('#defaultCountdown').countdown({until: austDay});
-});
-</script>
-
-<style type="text/css" media="screen">
-.gravatar img {
-	height: 42px;
-	width: 42px;
-}
-	
-</style>
-
-</head>
+        <link rel="canonical" href="http://autodidact.as/" />
+        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css" />
+        <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css" />
+        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.1.min.js"></script>
+        {% block extra_header %}{% endblock extra_header %}
+	</head>
 
 <body>
-	<div id="page"><!-- PAGE -->
-		<header>
-			<hgroup>
-				<h1>
-					<a href="./" title="InformaticPro.com">
-						InformaticPro
-					</a>
-				</h1>
-				<h2>
-					Descripcion
-				</h2>	
-			</hgroup>
-			<div class="container_img_general">
-				<img src="{{STATIC_URL}}img/imagen_header.jpg">
-			</div>
-				<h3>
-					Segundo taller de Pyton y django 
-				</h3>
-			<time>
-				Domingo 7:00pm Nic/ 8:00pm Mexico
-			</time>
-				<div id="day">07 : <span>Dias</span></div>
-				<div id="hours">05 : <span>Horas</span></div>
-				<div id="minutes">12 : <span>Minutos</span></div>
-				<div id="seconds">08<span>Segundos</span></div>
+		<!--[if lt IE 7]>
+    	<p class="navegador-antiguo">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    	<![endif]-->
 
-			<div id="next_workshop">
-				< Proximo Taller >
-			</div>
-			<aside id="social_networks">
-				<ul>
-					<li>
-						<span>34<span class="figure">
-						</span></span>
-						<a id="mar_you" href=""></a>
-					</li>
-					<li>
-						<span>345<span class="figure">
-						</span></span>
-						<a id="mar_twi" href=""></a>
-					</li>
-					<li>
-						<span>543<span class="figure">
-						</span></span>
-						<a id="mar_face" href=""></a>
-					</li>
-					<li>
-						<span>3452<span class="figure">
-						</span></span>
-						<a id="mar_goo" href=""></a>
-					</li>
-					<span id="border-down"></span>
-				</ul>
-			</aside>
-			<div id="info_middle"></div>
-		</header><!-- end header-->
+    		<div class="contenedor"><!-- CONTENEDOR -->
+    		{% block cabecera %}
+    			
+				<header role="banner"><!-- CABECERA -->
+					<hgroup>
+						<h1><a href="/" title="Autodidact.as" rel="home">Autodidactas</a></h1>
+						<h2 class="hidden">Comunidad informatica</h2>
+					</hgroup>
+
+					<div class="imagen-cabecera">
+						<img src="{{STATIC_URL}}img/imagen_header.jpg" alt="" />
+					</div>
+
+					<aside class="info-banner">
+					{% for taller in domingo %}
+						<h3>{{taller.titulo}}</h3>
+						<time>{{taller.fecha}}</time>
+						<ul id="cuenta-regresiva"></ul>
+					{% endfor %}	
+						<span class="proximo-taller">< Proximo Taller ></span>
+					</aside>
+					<aside  class="botones-comparir">
+						<h3 class="hidden">Compartir</h3>
+						<ul>
+							<li><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="felixricarb">Tweet</a></li>
+							<li><div class="fb-like" data-href="http://localhost/" data-send="false" data-layout="box_count" data-width="74" data-show-faces="true" data-font="arial"></div></li>
+							<li><div class="g-plusone" data-size="tall" data-href="http://localhost/"></div></li>
+						</ul>
+					</aside>
+				</header><!-- /CABECERA -->
+
+			{% endblock cabecera %}
 		
-		<section id="container">
-			<article id="general_new_container">
-				<h2 id="new_talks_title">
-					Charlas de Sabado
-				</h2>
-				<div id="new_talks_time">
-					4:00pm Nic/ 5:00pm Mexico
+		<div class="contenido box-sizing clearfix" role="main"><!-- CONTENIDO -->
+ {% load magicembed_tags %}
+	{% block contenido %}
+		
+		{% for taller in domingo %}
+			<article class="talleres-domingo"><!-- TALLERES-DOMINGO -->
+				<div class="imagen-video-taller">
+					<a href="{{taller.get_absolute_url}}"><img src="{{taller.url|magicthumbnail}}" alt="" /></a>
+					<div class="sombra-caja"></div>
 				</div>
-				<a id="new_talks_link" href="">
-					Lista de capitulos <span></span>
-				</a>
-				<span id="new_talks_balloon">
-				</span>
-				<div class="container_video_home">
-					<div class="marco_video_home">
-						<a href=""></a>
-					</div>
-					<div class="shadow_marco_video_home"></div>
-				</div>
-			</article><!--end general_new_container-->
-			<article id="general_new_container">
-				<div class="container_video_home">
-					<div class="marco_video_home">
-						<a href=""></a>
-					</div>
-					<div class="shadow_marco_video_home"></div>
-				</div>
-				<span id="new_workshop_balloon">
-				</span>
-				<h3 class="new_workshop_title">
-					Taller:
-				</h3>
-				<p class="new_workshop_text">
-					Phyton y Django
-				</p>
-				<h3 class="new_workshop_title">
-					Descripcion:
-				</h3>
-				<p class="new_workshop_text">
-					Introduccion al lenguaje de programación mas utilizando el CMS mas famoso de PHYTON.
-				</p>
-			</article><!--end general_new_container-->
-			<h3 id="past_workshops_h3">
-				Talleres pasados
-			</h3>
-			<article class="past_workshops_container">
-				<a href="">
-					<img src="">
-					<div class="past_workshops_h3">
-					Teller de introduccion a Phyton
-					</div>
-				</a>
-			</article>
-		</section>
-		{% block content %}
-			
-		<div id="defaultCountdown"></div>
-		<p>charlas sabado</p>
-		{%for charla in sabado%}
-			Titulo: <a href="{{charla.get_absolute_url}}">{{charla.titulo}}</a> <br>
-			Fecha: {{charla.fecha}}<br>
-			Descripción: {{charla.descripcion}}<br>
-			Usuario: <div class="gravatar">
-				<img src="{% gravatar_url charla.usuario.email %}" />
-			</div>{{charla.usuario.email}}
-			
-			
-		{%endfor%}
-		<br><br>
-		<p>Taller domingo</p>
-		{%for taller in domingo%}
-			Titulo: <a href="{{taller.get_absolute_url}}">{{taller.titulo}}</a> <br>
-			Fecha: {{taller.fecha}}<br>
-			Descripción: {{taller.descripcion}}<br>
-			Usuario: <div class="gravatar">
-				<img src="{% gravatar_url taller.usuario.email %}" />
-			</div>{{taller.usuario}}
-		{%endfor%}
-		<br><br>
-		<p>Lista de curso</p>
-		{%for curso in lista%}
-			{% for a in curso %}
-				Titulo: <a href="{{a.get_absolute_url}}">{{a.titulo}}</a> <br>
-				Fecha: {{a.fecha}}<br>
-				Descripción: {{a.descripcion|truncatewords:4}}<br>
-				Usuario: <div class="gravatar">
-				<img src="{% gravatar_url a.usuario.email %}" />
-			</div>{{a.usuario}}<br>
+				<span class="verde-agua">Taller:</span>
+				<h1>{{taller.titulo}}</h1>
+				<span class="verde-agua">Descripcion:</span>
+				<p>{{taller.descripcion|striptags|truncatewords:15}}</p>
+			</article><!-- /TALLERES-DOMINGO -->
+		{% endfor %}
+
+			<div class="talleres-pasados clearfix"><!-- TALLERES-PASADOS -->
+				<h3 class="verde-agua">Talleres pasados</h3>
+			{% for pasado in pasados %}
+				<article>
+					<a href="video.html">
+						<img src="{{pasado.url|magicthumbnail}}" alt="{{pasado.titulo}}" width="220" height="140" />
+						<h1>{{pasado.titulo}}</h1>
+					</a>
+					<p class="hidden">{{pasado.descripcion|striptags|truncatewords:9}}</p>
+				</article>
+				
 			{% endfor %}
-		{%endfor%}
-		<br><br>
-		{% endblock content %}
-		<footer>
-			Pie de pagina!!
-		</footer>
-	</div><!-- /PAGE -->
-</body>
+				
+			</div><!-- /TALLERES-PASADOS -->
+
+	{% endblock contenido %}
+
+			</div><!-- /CONTENIDO -->
+
+			<footer role="contentinfo"><!-- PIE -->
+			</footer><!-- /PIE -->
+
+		</div><!--  /CONTENEDOR-->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
+        <script src="{{STATIC_URL}}js/jquery.countdown.min.js"></script>
+        <script src="{{STATIC_URL}}js/plugins.js"></script>
+        <script src="http://platform.twitter.com/widgets.js"></script>
+        <script src="{{STATIC_URL}}js/main.js"></script>
+	</body>
 </html>

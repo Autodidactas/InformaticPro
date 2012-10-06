@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'south',
     'tagging',
     'tagging_autocomplete',
+    'magicembed',
 )
 
 # A sample logging configuration. The only tangible logging
