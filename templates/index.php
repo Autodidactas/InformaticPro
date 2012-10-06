@@ -70,6 +70,7 @@
 			</aside>
 			<div id="info_middle"></div>
 		</header><!-- end header-->
+		
 		<section id="container">
 			<article id="general_new_container">
 				<h2 id="new_talks_title">
