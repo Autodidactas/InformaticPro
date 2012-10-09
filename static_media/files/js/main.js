@@ -17,11 +17,11 @@ window.___gcfg = {lang: 'es-419'};
 }(document, 'script', 'facebook-jssdk'));
 
 // Contador
-$(function () {
-	var austDay = new Date();
-	austDay = new Date(austDay.getFullYear(), 12 - 2, - 23);
-	$('#cuenta-regresiva').countdown({until: austDay, serverSync: ahead5Mins, layout: '<li>{dn}<span>Días</span></li><li>{hn}<span>Horas</span></li><li>{mn}<span>Minutos</span></li><li>{sn}<span>Segundos</span></li>'});
-});
+//$(function () {
+//	var austDay = new Date();
+//	austDay = new Date(austDay.getFullYear(), 12 - 2, - 23);
+//	$('#cuenta-regresiva').countdown({until: austDay, serverSync: ahead5Mins, layout: '<li>{dn}<span>Días</span></li><li>{hn}<span>Horas</span></li><li>{mn}<span>Minutos</span></li><li>{sn}<span>Segundos</span></li>'});
+//});
 
 // Sincronización del servidor (simulados 5 minutos antes)
 function ahead5Mins() { 

@@ -15,6 +15,15 @@
         <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css" />
         <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css" />
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    var austDay = new Date();
+	austDay = new Date(austDay.getFullYear(), {{fecha_2|date:'m'}} -1, {{fecha_2|date:'d'}});
+	$('#cuenta-regresiva').countdown({until: austDay, serverSync: ahead5Mins, layout: '<li>{dn}<span>Días</span></li><li>{hn}<span>Horas</span></li><li>{mn}<span>Minutos</span></li><li>{sn}<span>Segundos</span></li>'});
+});
+
+</script>
         {% block extra_header %}{% endblock extra_header %}
 	</head>
 
@@ -60,7 +69,7 @@
  {% load magicembed_tags %}
 	{% block contenido %}
 		
-		{% for taller in domingo %}
+		{% for taller in primervideo %}
 			<article class="talleres-domingo"><!-- TALLERES-DOMINGO -->
 				<div class="imagen-video-taller">
 					<a href="{{taller.get_absolute_url}}"><img src="{{taller.url|magicthumbnail}}" alt="" /></a>
@@ -77,7 +86,7 @@
 				<h3 class="verde-agua">Talleres pasados</h3>
 			{% for pasado in pasados %}
 				<article>
-					<a href="video.html">
+					<a href="{{pasado.get_absolute_url}}">
 						<img src="{{pasado.url|magicthumbnail}}" alt="{{pasado.titulo}}" width="220" height="140" />
 						<h1>{{pasado.titulo}}</h1>
 					</a>
