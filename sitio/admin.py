@@ -16,7 +16,7 @@ admin.site.register(UserProfile, UserProfileAdmin)
 
 class VideosAdmin(admin.ModelAdmin):
 	prepopulated_fields = {"slug": ("titulo",)}
-	list_display = ('fecha', 'usuario','titulo','proximo')
+	list_display = ('fecha', 'usuario','titulo','proximo','curso','categoria')
 	search_fields = ['titulo']
 	list_filter = ('usuario','categoria','curso')
 	date_hierarchy = 'fecha'

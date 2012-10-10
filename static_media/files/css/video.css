@@ -1,0 +1,41 @@
+.verde-agua {
+	text-align: right;
+	margin-bottom: 20px;
+	line-height: 0.8em;
+	font-size: 4.375em;
+}
+
+#disqus_thread {
+	display: block;
+	background: rgba(0, 128, 146, 0.9);
+	padding: 11px 14.5px;
+		 /* Border Radius */
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+.ver-video-principal, #disqus_thread {
+	max-width: 589px;
+	text-align: left;
+	margin: 0 auto;
+}
+.ver-video-principal iframe {
+	background: rgb(54, 55, 54);
+	padding: 11px 14.5px;
+	width: 100%;
+	margin-bottom: 20px; 
+	 /* Border Radius */
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* Box Sizing */
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
