@@ -2,6 +2,8 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from sitio.models import *
 import datetime
+import GeoIP
+import time
 # Create your views here.
 
 def index(request):
@@ -18,7 +20,10 @@ def index(request):
 
 	#fecha para el conteo regresivo del proximo taller
 	fecha_2 = [nose.fecha for nose in domingo][0]
-	
+	pais = get_pais(request.META)
+	print pais
+	timestamp = get_timestamp()
+	print timestamp
 
 	return render_to_response('base.html', locals(),
 							   context_instance=RequestContext(request))
@@ -30,3 +35,37 @@ def detalle(request, slug):
 
 	return render_to_response('videos/video_detail.html', locals(),
 							   context_instance=RequestContext(request))
+
+def domingo_taller(now):
+    _4PM = datetime.time(hour=19)
+    _JUE = 6  # Monday=0 for weekday()
+    old_now = now
+    now += datetime.timedelta((_JUE - now.weekday()) % 7)
+    now = now.combine(now.date(), _4PM)
+    if old_now >= now:
+        now += datetime.timedelta(days=7)
+    return now
+
+
+def get_timestamp():
+    now = datetime.datetime.now()
+    sig_jueves = domingo_taller(now)
+    return int(time.mktime(sig_jueves.timetuple()) * 1000)
+
+def get_pais(meta):
+    geo = GeoIP.new(GeoIP.GEOIP_MEMORY_CACHE)
+
+    # por si el usuario esta detras de un proxy
+    if 'HTTP_X_FORWARDED_FOR' in meta and meta['HTTP_X_FORWARDED_FOR']:
+        ip = meta['HTTP_X_FORWARDED_FOR'].split(',')[0]
+    else:
+        ip = meta['REMOTE_ADDR']
+
+    country = geo.country_name_by_addr(ip)
+    if country is None:
+        country = ''
+
+    return country
+
+def locateme(request):
+    return HttpResponse(get_pais(request.META))
