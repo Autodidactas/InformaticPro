@@ -44,6 +44,13 @@ fieldset {
 textarea {
     resize: vertical;
 }
+a {
+    color: #CCC;
+    text-decoration: none;
+}
+a:hover {
+    color: #fff;
+}
 
 /* ==========================================================================
    Mis estilos
@@ -303,9 +310,16 @@ article.talleres-domingo p {
  * PIE
  */
 footer {
-    border-top: solid 1.6875em #363736;
+    background: #363736;
+    color: #fff;
+    line-height: 1.5em;
+    font-size: 1.3em;
+    text-align: left;
+    padding: 0 10px;
 }
-
+footer p span {
+    float: right;
+}
 
 /* ==========================================================================
    clases de ayuda
