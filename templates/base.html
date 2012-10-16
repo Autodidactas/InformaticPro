@@ -17,6 +17,7 @@
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.1.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <script src="{{STATIC_URL}}js/jquery.scountdown.js" type="text/javascript"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
         {% block extra_header %}{% endblock extra_header %}
 
 		<script type="text/javascript">
@@ -53,6 +54,14 @@
 		});
 		</script>
 
+		<script type="text/javascript">
+			$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
+  			//alert('País: ' + data.address.country);
+  			$('div.pais').html(data.address.country);
+		});
+
+		</script>
+
 
 	</head>
 
@@ -77,7 +86,7 @@
 					<aside class="info-banner">
 					{% for taller in domingo %}
 						<h3>{{taller.titulo}}</h3>
-						<time><strong id="hora" class="big"> 4:00PM GMT-5</strong></time>
+						<time><div class="pais"></div><strong id="hora" class="big"> 7:00PM GMT-6</strong></time>
 						<ul id="cuenta-regresiva" data-timestamp="{{ timestamp }}">
 						<li><div class="dias digito"></div><span>Días</span></li>
 						<li><div class="horas digito"></div><span>Horas</span></li>
