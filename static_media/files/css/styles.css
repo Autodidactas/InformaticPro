@@ -162,7 +162,7 @@ header hgroup h1 a {
     font-size: 1.125em;
     font-style: italic;
     text-align: center;
-    width: 279px;
+    width: 290px;
     float: right;
 }
 
@@ -285,10 +285,11 @@ article.talleres-domingo p {
     margin-right: 10px;
     text-align: left;
     line-height: 0.90em;
+    /* Box Sizing */
+    -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     -ms-box-sizing: border-box;
     -o-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box; 
 }
 .talleres-pasados article h1:hover {

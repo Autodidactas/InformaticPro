@@ -19,43 +19,39 @@
         <script src="{{STATIC_URL}}js/jquery.scountdown.js" type="text/javascript"></script>
         {% block extra_header %}{% endblock extra_header %}
 
-<script type="text/javascript">
+		<script type="text/javascript">
+		jQuery(function ($) {
+			var _hora, hora = $("#hora"),
+			proximo = $("#cuenta-regresiva"),
+			timestamp = parseInt(proximo.attr('data-timestamp'));
 
-jQuery(function ($) {
-	// contador
-	var _hora, hora = $("#hora"),
-		proximo = $("#cuenta-regresiva"),
-		timestamp = parseInt(proximo.attr('data-timestamp'));
+			proximo.scountdown({
+				callback: function (d, h, m, s) {
+					$(".dias", proximo).text(d);
+					$(".horas", proximo).text(h);
+					$(".minutos", proximo).text(m)
+					$(".segundos", proximo).text(s)
+				},
+				timestamp: timestamp
+			});
 
-	proximo.scountdown({
-		callback: function (d, h, m, s) {
-			$(".dias", proximo).text(d);
-			$(".horas", proximo).text(h);
-			$(".minutos", proximo).text(m)
-			$(".segundos", proximo).text(s)
-		},
-		timestamp: timestamp
-	});
+			_hora = new Date(timestamp);
+			hora.text(_hora.toString("h:mmtt"));
 
-	_hora = new Date(timestamp);
-	hora.text(_hora.toString("h:mmtt"));
-
-	function formatNumber(rep) {
-		rep = rep + ''; // coerce to string
-		if (rep < 1000) {
-			return rep; // return the same number
-		}
-		else if (rep < 5000) { // place a comma between
-			return rep.charAt(0) + ',' + rep.substring(1);
-		}
-		else { // divide and format
-			return (rep / 1000).toFixed(rep % 1000 != 0) + 'k';
-		}
-	}
-
-});
-
-</script>
+			function formatNumber(rep) {
+				rep = rep + ''; // coerce to string
+				if (rep < 1000) {
+					return rep; // return the same number
+				}
+				else if (rep < 5000) { // place a comma between
+					return rep.charAt(0) + ',' + rep.substring(1);
+				}
+				else { // divide and format
+					return (rep / 1000).toFixed(rep % 1000 != 0) + 'k';
+				}
+			}
+		});
+		</script>
 
 
 	</head>
@@ -95,9 +91,9 @@ jQuery(function ($) {
 					<aside  class="botones-comparir">
 						<h3 class="hidden">Compartir</h3>
 						<ul>
-							<li><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="felixricarb">Tweet</a></li>
-							<li><div class="fb-like" data-href="http://localhost/" data-send="false" data-layout="box_count" data-width="74" data-show-faces="true" data-font="arial"></div></li>
-							<li><div class="g-plusone" data-size="tall" data-href="http://localhost/"></div></li>
+							<li><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="Autodidact_as">Tweet</a></li>
+							<li><div class="fb-like" data-href="http://autodidact.as/" data-send="false" data-layout="box_count" data-width="74" data-show-faces="true" data-font="arial"></div></li>
+							<li><div class="g-plusone" data-size="tall" data-href="http://autodidact.as/"></div></li>
 						</ul>
 					</aside>
 				</header><!-- /CABECERA -->
@@ -147,7 +143,6 @@ jQuery(function ($) {
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
-        <script src="{{STATIC_URL}}js/jquery.countdown.min.js"></script>
         <script src="{{STATIC_URL}}js/plugins.js"></script>
         <script src="http://platform.twitter.com/widgets.js"></script>
         <script src="{{STATIC_URL}}js/main.js"></script>
