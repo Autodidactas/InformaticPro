@@ -21,6 +21,12 @@
         {% block extra_header %}{% endblock extra_header %}
 
 		<script type="text/javascript">
+		// País del visitante
+		$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
+  			$('.pais').html(data.address.country);
+		});
+
+		// Cuenta regresiva
 		jQuery(function ($) {
 			var _hora, hora = $("#hora"),
 			proximo = $("#cuenta-regresiva"),
@@ -54,15 +60,6 @@
 		});
 		</script>
 
-		<script type="text/javascript">
-			$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
-  			//alert('País: ' + data.address.country);
-  			$('div.pais').html(data.address.country);
-		});
-
-		</script>
-
-
 	</head>
 
 <body>
@@ -86,7 +83,7 @@
 					<aside class="info-banner">
 					{% for taller in domingo %}
 						<h3>{{taller.titulo}}</h3>
-						<time><div class="pais"></div><strong id="hora" class="big"> 7:00PM GMT-6</strong></time>
+						<time>Domingo <span id="hora" class="big"> 7:00PM GMT-6</span> <span class="pais"></span></time>
 						<ul id="cuenta-regresiva" data-timestamp="{{ timestamp }}">
 						<li><div class="dias digito"></div><span>Días</span></li>
 						<li><div class="horas digito"></div><span>Horas</span></li>
