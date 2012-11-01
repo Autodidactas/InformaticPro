@@ -60,9 +60,20 @@
 		});
 		</script>
 
+		<script type="text/JavaScript">
+			<!--
+		if ({{tiempo}} === 1){
+			function AutoRefresh() {
+				window.location.reload(true);
+				console.log({{tiempo}})
+			}
+		}
+		//   -->
+		</script>
+
 	</head>
 
-<body>
+<body {%if tiempo == 1%}onload="JavaScript:AutoRefresh();" {%else%} {%endif%}>
 		<!--[if lt IE 7]>
     	<p class="navegador-antiguo">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     	<![endif]-->
@@ -75,13 +86,20 @@
 						<h1><a href="/" title="Autodidact.as" rel="home">Autodidactas</a></h1>
 						<h2 class="hidden">Comunidad informatica</h2>
 					</hgroup>
-
-					<div class="imagen-cabecera">
-						<img src="{{STATIC_URL}}img/imagen_header.jpg" alt="" />
-					</div>
+					{% for img in portada %}
+						{%if img.arte%}
+							<div class="imagen-cabecera">
+								<img src="uploads/{{img.arte}}" alt="{{img.titulo}}" />
+							</div>
+						{%else%}
+							<div class="imagen-cabecera">
+								<img src="{{STATIC_URL}}img/imagen_header.jpg" alt="" />
+							</div>
+						{%endif%}
+					{% endfor %}
 
 					<aside class="info-banner">
-					{% for taller in domingo %}
+					{% for taller in portada %}
 						<h3>{{taller.titulo}}</h3>
 						<time>Domingo <span id="hora" class="big"> 7:00PM GMT-6</span> <span class="pais"></span></time>
 						<ul id="cuenta-regresiva" data-timestamp="{{ timestamp }}">
@@ -119,9 +137,13 @@
 				<h1>{{taller.titulo}}</h1>
 				<span class="verde-agua">Descripcion:</span>
 				<p>{{taller.descripcion|striptags|truncatewords:15}}</p>
+				<span class="verde-agua">Tags:</span>
+					<p>{{taller.tags}}</p>
+				<span class="verde-agua">Ponente:</span>
+					<h1>{{taller.usuario}}</h1>
 			</article><!-- /TALLERES-DOMINGO -->
 		{% endfor %}
-
+			
 			<div class="talleres-pasados clearfix"><!-- TALLERES-PASADOS -->
 				<h3 class="verde-agua">Talleres pasados</h3>
 			{% for pasado in pasados %}

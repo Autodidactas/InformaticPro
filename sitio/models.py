@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from tagging.models import Tag
 from tagging_autocomplete.models import TagAutocompleteField
+import os
 
 # Create your models here.
 
@@ -63,7 +64,7 @@ class Videos(models.Model):
 	categoria = models.ForeignKey(Categoria, null=True, blank=True)
 	curso = models.ForeignKey(Cursos, null=True, blank=True)
 	usuario = models.ForeignKey(User)
-	proximo = models.BooleanField()
+	portada = models.BooleanField()
 
 	def __unicode__(self):
 		return self.titulo
@@ -74,5 +75,31 @@ class Videos(models.Model):
 	class Meta:
 		verbose_name_plural = "Videos"
 
+def get_file_path(intance,filename):
+	return os.path.join(intance.fileDir, filename)
 
-		
+class Talleres(models.Model):
+	titulo = models.CharField(max_length=250)
+	descripcion = models.TextField()
+	arte = models.ImageField(upload_to=get_file_path)
+	proximo = models.BooleanField()
+	ponente = models.ForeignKey(User)
+	fileDir = 'imgportadas/'
+
+	def __unicode__(self):
+		return self.titulo
+
+	class Meta:
+		verbose_name_plural = "Talleres"
+
+class EnVivo(models.Model):
+	url_video = models.CharField(max_length=200)
+	url_chat = models.CharField(max_length=200)
+	en_vivo = models.BooleanField()
+
+	class Meta:
+		verbose_name = 'EnVivo'
+		verbose_name_plural = 'EnVivos'
+
+	def __unicode__(self):
+		return self.url_chat

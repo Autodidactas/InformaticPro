@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+	<link rel="stylesheet" type="text/css" href="css/estiloenvivo.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<!--<script type="text/javascript" src="http://leninc.nodejitsu.com/socket.io/socket.io.js"></script>-->
+	<meta charset="UTF-8">
+	<title>Autodidactas.com</title>
+
+
+</head>
+<body>
+	<header>
+		{% for a in vivo  %}
+			{{a.url_video}}---{{a.url_chat}}
+		{% endfor %}
+		<h1><span id="css">Deployment </span> Django <span id="css"Web </span> Servidor Shared <span id="html">by</span> <span id="git">@sacrac1</span></h1>	
+		<!--<h2>Desde UNAM FAREM CHONTALES NICARAGUA FECITEC</h2>	
+		<h3>La nueva era de la Programación</h3>-->
+	</header>
+	<!-- <div id="cont"><img alt="usuarios conectados" src="img/usr.png"/><span id="cant"></span></div> -->
+	<section id="chatroom">
+	<article id="video">
+			<!--<iframe width="100%" height="560" src="http://www.youtube.com/embed/WgPFjLXZ3lk" frameborder="0" allowfullscreen></iframe>-->
+			
+			<iframe width="100%" height="560" src="http://www.youtube.com/embed/Qb68DVrwq0" frameborder="0" allowfullscreen></iframe>
+		</article>
+		
+		<article id="chat">
+			<iframe style="height:630px;" type="text/html" width="100%" height="500px" src="http://chatcomu-hosmelq.dotcloud.com/" frameborder="0"></iframe>
+
+		</article>
+	</section>
+</body>
+</html>

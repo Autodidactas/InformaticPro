@@ -20,7 +20,7 @@
 			<hgroup>
 				<h1>
 					<a href="./" title="InformaticPro.com">
-						InformaticPro
+						Autodidactas
 					</a>
 				</h1>
 				<h2>
