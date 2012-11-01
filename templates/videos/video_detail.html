@@ -2,40 +2,92 @@
 
 {% block extra_header %}
 <link rel="stylesheet" href="{{STATIC_URL}}css/video.css" />
+<script type="text/javascript">
+		// País del visitante
+		$.getJSON('http://api.wipmania.com/jsonp?callback=?', function (data) {
+  			$('.pais').html(data.address.country);
+		});
+
+		// Cuenta regresiva
+		jQuery(function ($) {
+			var _hora, hora = $("#hora"),
+			proximo = $("#cuenta-regresiva"),
+			timestamp = parseInt(proximo.attr('data-timestamp'));
+
+			proximo.scountdown({
+				callback: function (d, h, m, s) {
+					$(".dias", proximo).text(d);
+					$(".horas", proximo).text(h);
+					$(".minutos", proximo).text(m)
+					$(".segundos", proximo).text(s)
+				},
+				timestamp: timestamp
+			});
+
+			_hora = new Date(timestamp);
+			hora.text(_hora.toString("h:mmtt"));
+
+			function formatNumber(rep) {
+				rep = rep + ''; // coerce to string
+				if (rep < 1000) {
+					return rep; // return the same number
+				}
+				else if (rep < 5000) { // place a comma between
+					return rep.charAt(0) + ',' + rep.substring(1);
+				}
+				else { // divide and format
+					return (rep / 1000).toFixed(rep % 1000 != 0) + 'k';
+				}
+			}
+		});
+		</script>
 {% endblock extra_header %}
 
 {% block cabecera %}
-
-			<header role="banner"><!-- CABECERA -->
+    			
+				<header role="banner"><!-- CABECERA -->
 					<hgroup>
 						<h1><a href="/" title="Autodidact.as" rel="home">Autodidactas</a></h1>
 						<h2 class="hidden">Comunidad informatica</h2>
 					</hgroup>
-
-					<div class="imagen-cabecera">
-						<img src="{{STATIC_URL}}img/imagen_header.jpg" alt="" />
-					</div>
+					{% for img in portada %}
+						{%if img.arte%}
+							<div class="imagen-cabecera">
+								<img src="/uploads/{{img.arte}}" alt="{{img.titulo}}" />
+							</div>
+						{%else%}
+							<div class="imagen-cabecera">
+								<img src="{{STATIC_URL}}img/imagen_header.jpg" alt="" />
+							</div>
+						{%endif%}
+					{% endfor %}
 
 					<aside class="info-banner">
-					{% for taller in domingo %}
+					{% for taller in portada %}
 						<h3>{{taller.titulo}}</h3>
-						<time>{{taller.fecha}}</time>
-						<ul id="cuenta-regresiva"></ul>
+						<time>Domingo <span id="hora" class="big"> 7:00PM GMT-6</span> <span class="pais"></span></time>
+						<ul id="cuenta-regresiva" data-timestamp="{{ timestamp }}">
+						<li><div class="dias digito"></div><span>Días</span></li>
+						<li><div class="horas digito"></div><span>Horas</span></li>
+						<li><div class="minutos digito"></div><span>Minutos</span></li>
+						<li><div class="segundos digito"></div><span>Segundos</span></li>
+						</ul>
+						
 					{% endfor %}	
 						<span class="proximo-taller">< Proximo Taller ></span>
 					</aside>
 					<aside  class="botones-comparir">
 						<h3 class="hidden">Compartir</h3>
-						
 						<ul>
-							<li><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="felixricarb">Tweet</a></li>
-							<li><div class="fb-like" data-href="http://localhost/" data-send="false" data-layout="box_count" data-width="74" data-show-faces="true" data-font="arial"></div></li>
-							<li><div class="g-plusone" data-size="tall" data-href="http://localhost/"></div></li>
+							<li><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="Autodidact_as">Tweet</a></li>
+							<li><div class="fb-like" data-href="http://autodidact.as/" data-send="false" data-layout="box_count" data-width="74" data-show-faces="true" data-font="arial"></div></li>
+							<li><div class="g-plusone" data-size="tall" data-href="http://autodidact.as/"></div></li>
 						</ul>
 					</aside>
-			</header><!-- /CABECERA -->
-	
-{% endblock cabecera %}
+				</header><!-- /CABECERA -->
+
+			{% endblock cabecera %}
+		
 
 {% load magicembed_tags %}
 

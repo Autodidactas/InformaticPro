@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from tagging.models import Tag
 from tagging_autocomplete.models import TagAutocompleteField
+from django.template.defaultfilters import slugify
 import os
 
 # Create your models here.
@@ -56,7 +57,7 @@ class Social(models.Model):
 		
 class Videos(models.Model):
 	titulo = models.CharField(max_length=200, null=True, blank=True)
-	slug = models.SlugField(max_length=200, null=True, blank=True)
+	slug = models.SlugField(max_length=200, null=True, blank=True, editable=False)
 	fecha = models.DateTimeField()
 	descripcion = models.TextField('Descripción')
 	url = models.URLField()
@@ -68,6 +69,10 @@ class Videos(models.Model):
 
 	def __unicode__(self):
 		return self.titulo
+		
+	def save(self, *args, **kwargs):
+		self.slug = (slugify(self.titulo))
+		super(Videos, self).save(*args, **kwargs)
 
 	def get_absolute_url(self):
 		return '/sitio/%s/' % (self.slug)
