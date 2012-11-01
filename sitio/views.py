@@ -9,21 +9,21 @@ import time
 def index(request):
 	''' vista del base del sitio
 	'''
-	#sabado son todos las charlas del sabado
-	sabado = Videos.objects.filter(categoria=1).order_by('-fecha')[:1]
-	#domingo es la variable que contiene el proximo taller
-	domingo = Videos.objects.filter(categoria=2,proximo=True)
-	#pasados son los videos pasadas de los talleres
-	pasados = Videos.objects.filter(categoria=2).exclude(proximo=True).order_by('fecha')[:4]
-	#primervideo es al ultimo taller impartido
-	primervideo = Videos.objects.filter(categoria=2).order_by('fecha')[:1]
+	tiempo = EnVivo.objects.filter(en_vivo=True).count()
+	if tiempo:
+		vivo = EnVivo.objects.filter(en_vivo=True)
+		return render_to_response('vivo.html', locals(),
+							   context_instance=RequestContext(request))
+	#portada para el proximo taller
+	portada = Talleres.objects.filter(proximo=True)[:1]
 
-	#fecha para el conteo regresivo del proximo taller
-	fecha_2 = [nose.fecha for nose in domingo][0]
-	#pais = get_pais(request.META)
-	#print pais
+	#primer taller es la variable que contiene el proximo taller
+	primervideo = Videos.objects.filter(categoria=2,portada=True)
+
+	#pasados son los videos pasadas de los talleres
+	pasados = Videos.objects.filter(categoria=2).order_by('fecha')[:4]
+
 	timestamp = get_timestamp()
-	print timestamp
 
 	return render_to_response('base.html', locals(),
 							   context_instance=RequestContext(request))

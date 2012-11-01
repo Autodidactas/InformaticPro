@@ -1,0 +1,52 @@
+article{
+	float: left;
+}
+#video{
+	border:1px solid #52d9ef;
+	padding:2px;
+	width: 63%;
+	margin-right:1em;
+}
+#chat{
+	width: 35%;
+	height: 700px;	
+}
+#chatroom{
+	height:500px;
+}
+
+
+#cont{
+	color:#ee652a;
+}
+#cant{
+	position:absolute;
+	left:120px;
+	margin-top:4px;
+	font-size:24px;
+	text-shadow:2px 2px 3px rgba(0,0,0,0.8);
+}
+
+iframe{
+	
+	overflow-x:hidden;
+}
+header{
+	text-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+#css{
+	color:#0091be;
+}
+#html{
+	color:#ee652a;
+}
+
+#git{
+	color:#D6D0D2;
+	}
+body{
+    color:white;
+    width:95%;
+    background-image:url(../img/fondo_envivo.gif);
+    margin:0 auto;
+}
