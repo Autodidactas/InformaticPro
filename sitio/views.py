@@ -15,7 +15,7 @@ def index(request):
 		return render_to_response('vivo.html', locals(),
 							   context_instance=RequestContext(request))
 	#portada para el proximo taller
-	portada = Talleres.objects.filter(proximo=True)
+	portada = Talleres.objects.filter(proximo=True)[:1]
 
 	#primer taller es la variable que contiene el proximo taller
 	primervideo = Videos.objects.filter(categoria=2,portada=True)
