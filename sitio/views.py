@@ -30,8 +30,10 @@ def index(request):
 
 
 def detalle(request, slug):
-	domingo = Videos.objects.filter(categoria=2,proximo=True).order_by('-fecha')
+	portada = Talleres.objects.filter(proximo=True)[:1]
+	domingo = Videos.objects.filter(categoria=2,portada=True).order_by('-fecha')
 	video = get_object_or_404(Videos, slug=slug)
+	timestamp = get_timestamp()
 
 	return render_to_response('videos/video_detail.html', locals(),
 							   context_instance=RequestContext(request))

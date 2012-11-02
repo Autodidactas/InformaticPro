@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from tagging.models import Tag
 from tagging_autocomplete.models import TagAutocompleteField
+from django.template.defaultfilters import slugify
 import os
 
 # Create your models here.
@@ -55,8 +56,8 @@ class Social(models.Model):
 		verbose_name_plural = "Social"
 		
 class Videos(models.Model):
-	titulo = models.CharField(max_length=200)
-	slug = models.CharField(max_length=200)
+	titulo = models.CharField(max_length=200, null=True, blank=True)
+	slug = models.SlugField(max_length=200, null=True, blank=True, editable=False)
 	fecha = models.DateTimeField()
 	descripcion = models.TextField('Descripción')
 	url = models.URLField()
@@ -68,6 +69,10 @@ class Videos(models.Model):
 
 	def __unicode__(self):
 		return self.titulo
+		
+	def save(self, *args, **kwargs):
+		self.slug = (slugify(self.titulo))
+		super(Videos, self).save(*args, **kwargs)
 
 	def get_absolute_url(self):
 		return '/sitio/%s/' % (self.slug)
@@ -93,13 +98,15 @@ class Talleres(models.Model):
 		verbose_name_plural = "Talleres"
 
 class EnVivo(models.Model):
-	url_video = models.CharField(max_length=200)
-	url_chat = models.CharField(max_length=200)
-	en_vivo = models.BooleanField()
+    titulo = models.CharField(max_length=200, null=True, blank=True)
+    url_video = models.CharField(max_length=200)
+    url_chat = models.CharField(max_length=200)
+    en_vivo = models.BooleanField()
+    ponente = models.ForeignKey(User)
 
-	class Meta:
-		verbose_name = 'EnVivo'
-		verbose_name_plural = 'EnVivos'
+    class Meta:
+        verbose_name = 'EnVivo'
+        verbose_name_plural = 'EnVivos'
 
-	def __unicode__(self):
-		return self.url_chat
+    def __unicode__(self):
+        return self.url_chat

@@ -49,18 +49,40 @@ class Migration(SchemaMigration):
         # Adding model 'Videos'
         db.create_table('sitio_videos', (
             ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('titulo', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('slug', self.gf('django.db.models.fields.CharField')(max_length=200)),
-            ('fecha', self.gf('django.db.models.fields.DateField')()),
+            ('titulo', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('slug', self.gf('django.db.models.fields.SlugField')(max_length=200, null=True, blank=True)),
+            ('fecha', self.gf('django.db.models.fields.DateTimeField')()),
             ('descripcion', self.gf('django.db.models.fields.TextField')()),
             ('url', self.gf('django.db.models.fields.URLField')(max_length=200)),
             ('tags', self.gf('tagging_autocomplete.models.TagAutocompleteField')(null=True)),
             ('categoria', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['sitio.Categoria'], null=True, blank=True)),
             ('curso', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['sitio.Cursos'], null=True, blank=True)),
             ('usuario', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
-            ('proximo', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('portada', self.gf('django.db.models.fields.BooleanField')(default=False)),
         ))
         db.send_create_signal('sitio', ['Videos'])
+
+        # Adding model 'Talleres'
+        db.create_table('sitio_talleres', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('titulo', self.gf('django.db.models.fields.CharField')(max_length=250)),
+            ('descripcion', self.gf('django.db.models.fields.TextField')()),
+            ('arte', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
+            ('proximo', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('ponente', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+        ))
+        db.send_create_signal('sitio', ['Talleres'])
+
+        # Adding model 'EnVivo'
+        db.create_table('sitio_envivo', (
+            ('id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('titulo', self.gf('django.db.models.fields.CharField')(max_length=200, null=True, blank=True)),
+            ('url_video', self.gf('django.db.models.fields.CharField')(max_length=200)),
+            ('url_chat', self.gf('django.db.models.fields.CharField')(max_length=200)),
+            ('en_vivo', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('ponente', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'])),
+        ))
+        db.send_create_signal('sitio', ['EnVivo'])
 
 
     def backwards(self, orm):
@@ -81,6 +103,12 @@ class Migration(SchemaMigration):
 
         # Deleting model 'Videos'
         db.delete_table('sitio_videos')
+
+        # Deleting model 'Talleres'
+        db.delete_table('sitio_talleres')
+
+        # Deleting model 'EnVivo'
+        db.delete_table('sitio_envivo')
 
 
     models = {
@@ -130,6 +158,15 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'nombre': ('django.db.models.fields.CharField', [], {'max_length': '200'})
         },
+        'sitio.envivo': {
+            'Meta': {'object_name': 'EnVivo'},
+            'en_vivo': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'ponente': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"}),
+            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'url_chat': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'url_video': ('django.db.models.fields.CharField', [], {'max_length': '200'})
+        },
         'sitio.redes': {
             'Meta': {'object_name': 'Redes'},
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -142,6 +179,15 @@ class Migration(SchemaMigration):
             'url': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'usuario': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['sitio.UserProfile']"})
         },
+        'sitio.talleres': {
+            'Meta': {'object_name': 'Talleres'},
+            'arte': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
+            'descripcion': ('django.db.models.fields.TextField', [], {}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'ponente': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"}),
+            'proximo': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '250'})
+        },
         'sitio.userprofile': {
             'Meta': {'object_name': 'UserProfile'},
             'descripcion': ('django.db.models.fields.TextField', [], {}),
@@ -153,12 +199,12 @@ class Migration(SchemaMigration):
             'categoria': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['sitio.Categoria']", 'null': 'True', 'blank': 'True'}),
             'curso': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['sitio.Cursos']", 'null': 'True', 'blank': 'True'}),
             'descripcion': ('django.db.models.fields.TextField', [], {}),
-            'fecha': ('django.db.models.fields.DateField', [], {}),
+            'fecha': ('django.db.models.fields.DateTimeField', [], {}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'proximo': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
-            'slug': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'portada': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'tags': ('tagging_autocomplete.models.TagAutocompleteField', [], {'null': 'True'}),
-            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'titulo': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
             'url': ('django.db.models.fields.URLField', [], {'max_length': '200'}),
             'usuario': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['auth.User']"})
         }

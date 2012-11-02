@@ -16,3 +16,4 @@ local_settings.py
 .ropeproject
 *.sublime-project
 *.sublime-workspace
+/static_media/uploads/
