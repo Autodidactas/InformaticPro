@@ -125,7 +125,7 @@ header hgroup h1 a {
     margin-top: -15px;
     margin-right: 10px;
     text-align: right;
-    width: 50.10416%;   /*481px*/
+    width: 55%;   /*481px*/
 }
 .info-banner h3,
 .info-banner time, #cuenta-regresiva li, .proximo-taller {
@@ -467,8 +467,12 @@ footer p span {
          top: -2.6785em;
     }
     .info-banner {
-        width: 60.10416%;   /*481px*/
+        width: 65%;   /*481px*/
     } 
+
+    .info-banner time{
+    margin-bottom: 5px;
+   }
 
     .conte-videos article{
         width: 25%;
@@ -486,6 +490,7 @@ footer p span {
         top: 2.3em;
     }
  
+  
     .botones-compartir{
         display: none;
     }
@@ -501,9 +506,14 @@ footer p span {
     .conte-videos article{
         width: 60%;
    }
-    .time{
+    .info-banner{
+        font-size: 83%;
+        top: 3.3em;
+    }
+  
+    .info-banner time{
     width: auto;
-   }
+     }
 
 }
 
@@ -511,6 +521,7 @@ footer p span {
 @media only screen and (max-width: 320px) {
     .info-banner {
         text-align: center;
+        top: 5em;
     }
     .info-banner h3 {
         font-size: 4em;
