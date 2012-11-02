@@ -295,7 +295,7 @@ dd {
 menu,
 ol,
 ul {
-    padding: 0 0 0 40px;
+    padding: 0 0 0 0px; /*cambiando padding ultimo de 40px;*/
 }
 
 /*
@@ -514,3 +514,5 @@ table {
     font-family: BrowalliaUPC;
     src: url("BrowalliaUPC/browau.ttf") /* Ttf para CSS3 navegadores */
 }
+
+/*Media query para resetear paddin */

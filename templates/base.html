@@ -88,11 +88,11 @@
 					</hgroup>
 					{% for img in portada %}
 						{%if img.arte%}
-							<div class="imagen-cabecera">
+							<div class="cabecera-imagen">
 								<img src="uploads/{{img.arte}}" alt="{{img.titulo}}" />
 							</div>
 						{%else%}
-							<div class="imagen-cabecera">
+							<div class="cabecera-imagen">
 								<img src="{{STATIC_URL}}img/imagen_header.jpg" alt="" />
 							</div>
 						{%endif%}
@@ -106,18 +106,25 @@
 						<li><div class="dias digito"></div><span>Días</span></li>
 						<li><div class="horas digito"></div><span>Horas</span></li>
 						<li><div class="minutos digito"></div><span>Minutos</span></li>
-						<li><div class="segundos digito"></div><span>Segundos</span></li>
+						<li><div class="segundos digito"></div><span>Segundos</span>
+						</li>
 						</ul>
 						
 					{% endfor %}	
-						<span class="proximo-taller">< Proximo Taller ></span>
+						<span class="proximo-taller">< Próximo Taller ></span>
 					</aside>
-					<aside  class="botones-comparir">
+					<aside  class="botones-compartir">
 						<h3 class="hidden">Compartir</h3>
 						<ul>
-							<li><a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="Autodidact_as">Tweet</a></li>
-							<li><div class="fb-like" data-href="http://autodidact.as/" data-send="false" data-layout="box_count" data-width="74" data-show-faces="true" data-font="arial"></div></li>
-							<li><div class="g-plusone" data-size="tall" data-href="http://autodidact.as/"></div></li>
+							<li>
+								<a href="http://twitter.com/share" class="twitter-share-button" data-count="vertical" data-via="Autodidact_as">Tweet</a>
+							</li>
+							<li>
+								<div class="fb-like" data-href="http://autodidact.as/" data-send="false" data-layout="box_count" data-width="74" data-show-faces="true" data-font="arial"></div>
+							</li>
+							<li>
+								<div class="g-plusone" data-size="tall" data-href="http://autodidact.as/"></div>
+							</li>
 						</ul>
 					</aside>
 				</header><!-- /CABECERA -->
@@ -135,7 +142,7 @@
 				</div>
 				<span class="verde-agua">Taller:</span>
 				<h1>{{taller.titulo}}</h1>
-				<span class="verde-agua">Descripcion:</span>
+				<span class="verde-agua">Descripción:</span>
 				<p>{{taller.descripcion|striptags|truncatewords:15}}</p>
 				<span class="verde-agua">Tags:</span>
 					<p>{{taller.tags}}</p>
@@ -144,18 +151,20 @@
 			</article><!-- /TALLERES-DOMINGO -->
 		{% endfor %}
 			
-			<div class="talleres-pasados clearfix"><!-- TALLERES-PASADOS -->
+			<div class="talleres-pasados"><!-- TALLERES-PASADOS -->
 				<h3 class="verde-agua">Talleres pasados</h3>
-			{% for pasado in pasados %}
+				<section class="conte-videos">
+					{% for pasado in pasados %}
 				<article>
 					<a href="{{pasado.get_absolute_url}}">
-						<img src="{{pasado.url|magicthumbnail}}" alt="{{pasado.titulo}}" width="220" height="140" />
+						<img src="{{pasado.url|magicthumbnail}}" alt="{{pasado.titulo}}" width="100%" height="36.3%" />
 						<h1>{{pasado.titulo}}</h1>
 					</a>
 					<p class="hidden">{{pasado.descripcion|striptags|truncatewords:9}}</p>
 				</article>
 				
 			{% endfor %}
+				</section>
 				
 			</div><!-- /TALLERES-PASADOS -->
 
