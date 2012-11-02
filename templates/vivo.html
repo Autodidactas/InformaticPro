@@ -11,7 +11,10 @@
 </head>
 <body>
 	<header>
-		<h1><span id="css">Deployment </span> Django <span id="css"Web </span> Servidor Shared <span id="html">by</span> <span id="git">@sacrac1</span></h1>	
+		{% for a in vivo %}
+			<h1> {{a.titulo}}<span id="html">by</span> <span id="git">{{a.ponente}}</span></h1>
+		{% endfor %}
+			
 		<!--<h2>Desde UNAM FAREM CHONTALES NICARAGUA FECITEC</h2>	
 		<h3>La nueva era de la Programación</h3>-->
 	</header>
