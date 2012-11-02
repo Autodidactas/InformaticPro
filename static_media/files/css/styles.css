@@ -89,6 +89,10 @@ header {
     text-align: center;
 }
 /* Banner que aparece como fondo en la cabecera. */
+.cabecera-imagen{
+
+    overflow: hidden;
+}
 header .cabecera-imagen img {
     height: auto;
     display: block;
@@ -98,7 +102,7 @@ header hgroup {
     position: absolute;
     top: -2.8075em;
     left: .125em;
-    width: 33.125%;
+    width: 318px; /*33.125%;*/
 }
 header hgroup h1 {
     height: 100%;
@@ -139,9 +143,8 @@ header hgroup h1 a {
     font-size: 1.75em;
     font-style: italic;
     line-height: 0.7em;
-    padding: 0 10px 4px 10px;
+    padding: 0 10px 4px 0px;
     display: block;
-    margin-left: 100px;
     margin-bottom: 20px;
 }
 #cuenta-regresiva {
@@ -174,13 +177,13 @@ header hgroup h1 a {
 }
 
 /* Estos son los estilos para los botones que están en la cabecera. */
-.botones-comparir {
+.botones-compartir {
     position: absolute;
     text-align: center;
     bottom: 0;
     margin: 0 0 -20px 10px;
 }
-.botones-comparir ul {
+.botones-compartir ul {
     display: inline-block;
     font-size: 0; /* Es para que los botones no tengan un line-height definido. */
     border-bottom: 10px solid #363736;
@@ -194,15 +197,16 @@ header hgroup h1 a {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
-.botones-comparir ul li {
+.botones-compartir ul li {
     list-style-type: none;
     display: inline-block;
     margin: 0 40px -20px 0;
 }
-.botones-comparir ul li:nth-child(3n) {margin-right: 0;}
+
+.botones-compartir ul li:nth-child(3n) {margin-right: 0;}
 /* Felix Barros:
  * El problema del margen fue soluciónado.
-.botones-comparir ul li div.fb-like { margin-bottom: 7px; }*/
+.botones-compartir ul li div.fb-like { margin-bottom: 7px; }*/
 
 
 /* CONTENIDO */
@@ -218,6 +222,7 @@ article.talleres-domingo {
     width: 100%;
     text-align: left;
 }
+
 article.talleres-domingo h1,
 article.talleres-domingo p {
     font-size: 1.875em;
@@ -226,6 +231,7 @@ article.talleres-domingo p {
     line-height: 0.75em;
     margin-top: 10px;
 }
+
 .verde-agua {
     font-size: 3em;
     color: #009ebe;
@@ -241,6 +247,7 @@ article.talleres-domingo p {
     -o-text-shadow: rgba(0, 0, 0, 0.9) 1px 1px 2px;
     text-shadow: rgba(0, 0, 0, 0.9) 1px 1px 2px;
 }
+
 .imagen-video-taller {
     width: 50.1%;
     float: left;
@@ -265,23 +272,37 @@ article.talleres-domingo p {
     width: 100%;
 }
 
+/*Estilo para los talleres pasados*/
+.conte-videos{
+    width: 100%;
+}
+.talleres-pasados{
+    width: 100%;
+    margin:0 auto;
+    overflow: hidden;
+}
+
+.talleres-pasados article{
+    width: 20%;
+    margin-right: 1.3em;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 1em;
+    margin-left: 1em;
+    position: relative;
+
+}
 /* Estos son los estilos para los Talleres pasados. */
 .talleres-pasados {
     margin-top: 20px;
 }
+
 .talleres-pasados h3 {
     margin-bottom: 20px;
 }
-.talleres-pasados article {
-    background: #CCC;
-    width: 23.12%;
-    /*height: 16.66%;*/
-    display: inline-block;
-    margin-bottom: 20px;
-    position: relative;
-}
+
 .talleres-pasados article h1 {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.4);
     position: absolute;
     top: 0;
     text-decoration: none;
@@ -299,11 +320,9 @@ article.talleres-domingo p {
     -o-box-sizing: border-box;
     box-sizing: border-box; 
 }
+
 .talleres-pasados article h1:hover {
     text-decoration: underline;
-}
-.talleres-pasados article:nth-child(1n+3) {
-    margin-left: 20px;
 }
 
 /*
@@ -317,6 +336,7 @@ footer {
     text-align: left;
     padding: 0 10px;
 }
+
 footer p span {
     float: right;
 }
@@ -436,6 +456,57 @@ footer p span {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+@media only screen and (max-width: 900px) {
+  
+
+}
+
+@media only screen and (max-width: 768px) {
+    header hgroup{
+        width: 280px;
+         top: -2.6785em;
+    }
+    .info-banner {
+        width: 60.10416%;   /*481px*/
+    } 
+
+    .conte-videos article{
+        width: 25%;
+    } 
+
+     .imagen-video-taller{
+       width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .info-banner {
+        width: auto !important;
+        margin-left: 10px;
+        top: 2.3em;
+    }
+ 
+    .botones-compartir{
+        display: none;
+    }
+   
+
+   .conte-videos article{
+        width: 40%;
+   }
+    
+}
+
+@media  screen and (max-width: 480px){
+    .conte-videos article{
+        width: 60%;
+   }
+    .time{
+    width: auto;
+   }
+
+}
+
 
 @media only screen and (max-width: 320px) {
     .info-banner {
@@ -444,39 +515,20 @@ footer p span {
     .info-banner h3 {
         font-size: 4em;
     }
-}
-@media only screen and (max-width: 480px) {
-}
-
-@media only screen and (max-width: 600px) {
-    .info-banner {
-        width: auto !important;
-        margin-left: 10px;
+    
+    .conte-videos article{
+        width: 70%;
     }
-    .imagen-video-taller {
-        width: 100%;
-        display: block;
-    }
-}
-@media screen and (max-width: 768px) {
-    .info-banner {
-        width: 60.10416%;   /*481px*/
-    }
-    .botones-comparir { display: none; }
-    .talleres-pasados article:nth-child(3n+0) {
-        display: none;
-    }
-}
-@media only screen and (max-width: 900px) {
-    body {
-        font-size: 80%;
-    }
-    .talleres-pasados article {
-        width: 22.8%;
+    .talleres-pasados h3{
+        line-height: 0.6em;
+        text-align: center;
     }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+
+
+/*
+@media only screen and(-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min-resolution: 144dpi) {
-    /* Ajustes de estilo para dispositivos de alta resolución */
-}
+    /* Ajustes de estilo para dispositivos de alta resolución 
+}*/
