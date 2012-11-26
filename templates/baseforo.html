@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Foro autodidacta</title>
+	<title>Foro autodidactas</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
 
 	<!-- Le styles -->
 	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+	<link href="{{STATIC_URL}}css/foro.css" rel="stylesheet">
 	<style type="text/css">
 		body { padding-top: 60px; padding-bottom: 40px; }
 	</style>
@@ -35,13 +36,17 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</a>
-				<a class="brand" href="#">Foro comunidad #Autodidacta</a>
+				<a class="brand" href="#">Foro comunidad #Autodidactas</a>
 				<form action="/foro/" method="get" class="navbar-search pull-right">
-  					<input type="text" name="q" value="{% if query %}{{query}}{% endif %}" class="search-query" placeholder="Buscar">
+  					<input type="text" name="q" value="{% if query %}{{query}}{% endif %}" class="search-query" placeholder="Buscar tema en el foro">
 				</form>
               		<ul class="nav pull-right">
-              			<li><a href="#" class="navbar-link">Registrarse</a></li>
-              			<li><a href="#" class="navbar-link">Entrar</a></li>
+              				<li><a href="#" class="navbar-link">Registrarse</a></li>
+              			{% if request.user.is_authenticated %}
+              				<li><a href="#" class="navbar-link">Bienvenido: {{user.username}}</a></li>
+              			{%else%}
+              				<li><a href="/admin" class="navbar-link">Entrar</a></li>
+              			{% endif %}
               		</ul>
 			</div>
 		</div>

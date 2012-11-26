@@ -7,28 +7,31 @@
 <div>
     {% include "askbotmini/sidebar.html" %}
 </div>
-<div class="span10">
+<div class="span10 well">
     <div id="encabezado_contenido">Foro de Discuciones <div style="float:right; margin-right:5px;">{{questions.count}} Discusiones</div></div>
     <div id="barra_foro">
-        <a href="/foro/" {% if barra_foro == 'index' %}class='selected'{% endif %}><img src="/files/img/discucion.png" alt="discusion">Discusiones destacadas</a>
-        <a href="/foro/?tab=latest"  {% if barra_foro == 'latest' %}class='selected'{% endif %}><img src="/files/img/ultimas.png" alt="destacadas">Ultimas discusiones</a>
-        <a href="/foro/questions/ask/" style="float:right;width:120px"><img src="/files/img/add.png" alt="add foro">Crear un foro</a>
+    
+        <a href="/foro/" {% if barra_foro == 'index' %}class='selected'{% endif %}><img src="/files/img/destacado.png" alt="discusion" height="24" width="25" >Discusiones destacadas</a>
+            
+        <a href="/foro/?tab=latest"  {% if barra_foro == 'latest' %}class='selected'{% endif %}><img src="/files/img/visto.png" alt="destacadas" height="24" width="25">Ultimas discusiones</a>
+            
+        <a class="btn" href="/foro/questions/ask/" style="float:right;width:120px"><img src="/files/img/plus.png" alt="add foro" height="24" width="25"> Crear un foro</a>
     </div>
-    <div class="num-respuesta-commnet">Foros encontrados para la busqueda > <b>{{query}}</b></div>
+
     <div class="question_list">
         {% for question in questions %}
         <div class="question">
             <div class="left">
                 {%if question.answer_set.all.count == 0 %}
-                                <div class="num_respuestas-red">{{question.answer_set.all.count}}</div>
-                <div class="respuestas-red">
-                    RESPUESTAS
-                </div>
+                    <div class="num_respuestas-red">{{question.answer_set.all.count}}</div>
+                    <div class="respuestas-red">
+                        RESPUESTAS
+                    </div>
                 {%else%}
-                <div class="num_respuestas">{{question.answer_set.all.count}}</div>
-                <div class="respuestas">
-                    RESPUESTAS
-                </div>
+                    <div class="num_respuestas">{{question.answer_set.all.count}}</div>
+                    <div class="respuestas">
+                        RESPUESTAS
+                    </div>
                 {%endif%}
             </div>
             <div class="left">
