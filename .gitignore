@@ -17,3 +17,4 @@ local_settings.py
 *.sublime-project
 *.sublime-workspace
 /static_media/uploads/
+/static_media/files/admin
