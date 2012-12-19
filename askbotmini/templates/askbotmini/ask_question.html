@@ -1,0 +1,44 @@
+{% extends "baseforo.html" %}
+{% block extra_header %}
+<link href="{{MEDIA_URL}}css/askbotmini.css" rel="stylesheet" type="text/css">
+<link href="{{MEDIA_URL}}css/jquery.autocomplete.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/files/js/autocomplete/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="/files/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="/files/js/tiny_mce/askbotconfig.js"></script>
+{% endblock %}
+{% block contenido %}
+<div id="sidebar">
+    {% include "askbotmini/sidebar.html" %}
+</div> 
+<div id="contenido">
+ <div id="encabezado_contenido">Foro de Discuciones</div>
+<div>
+    <form action="." method="post">{% csrf_token %}
+        <table class="askquestion">
+            <tr>
+                <td>
+                    <label for="question"><b>{{form.question.label}}</b></label><br>
+                    {{form.question}}
+                </td>
+            </tr>
+            <tr>
+                <td>{{form.description}}</td></tr>
+            <tr>
+                <td>
+                    <label for="id_tags"><b>Tags:</b></label><br>
+                    {{form.tags}}
+                </td>
+            </tr>
+            <tr>               
+                <td>
+                    {{form.notify}}<label for="id_notify">Notificar a los usuarios del sitio</label>
+                </td>                
+            </tr>            
+        </table>
+        <input id="boton-preguntar" type="submit" value="Guardar">
+    </form>
+</div>
+
+
+</div>
+{% endblock %}
