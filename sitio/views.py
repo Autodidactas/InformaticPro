@@ -17,7 +17,7 @@ def index(request):
 	primervideo = Videos.objects.filter(categoria=2,portada=True)
 
 	#pasados son los videos pasadas de los talleres
-	pasados = Videos.objects.filter(categoria=2).order_by('-fecha')[:4]
+	pasados = Videos.objects.filter(categoria=2).exclude(portada=True).order_by('-fecha')[:4]
 
 	return render_to_response('base.html', locals(),
 							   context_instance=RequestContext(request))
