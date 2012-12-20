@@ -11,6 +11,7 @@ InformaticPro
 [Hosmel Quintana](http://twitter.com/hosmelQ "Hosmel Quintana")
 
 ####Back-end
+* [Lenín Casco](http://twitter.com/lenincasco "Lenín Casco")
 * [Carlos Rochas](http://twitter.com/sacrac1 "Carlos Rochas")
 * [Samuel Burbano Ramos](http://twitter.com/samuelb1311 "Samuel Burbano Ramos")
 

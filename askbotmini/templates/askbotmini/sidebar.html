@@ -1,0 +1,13 @@
+<!--Sidebar-->
+<div class="span2">
+<div class="well">
+	<h2>Temas</h2>
+	<ul class="pager">
+	    {% for tag in tags %}
+	    <li> <a href="/foro/tagged/{{tag.name}}">{{tag.name}}</a> {% if query %} x {{tag.count}}{% else %}{{tag.get_real_items}}{% endif %}<br><br></li>
+	    {% endfor %}
+	</ul>
+</div>
+</div>
+
+

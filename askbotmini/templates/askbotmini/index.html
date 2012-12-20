@@ -1,0 +1,65 @@
+{% extends "baseforo.html" %}
+{% block title %}Foros{% endblock %}
+{% block extra_header %}
+{% endblock %}
+{% block contenido %}
+
+<div>
+    {% include "askbotmini/sidebar.html" %}
+</div>
+<div class="span10 well">
+    <div id="encabezado_contenido">Foro de Discuciones <div style="float:right; margin-right:5px;">{{questions.count}} Discusiones</div></div>
+    <div id="barra_foro">
+    
+        <a href="/foro/" {% if barra_foro == 'index' %}class='selected'{% endif %}><img src="/files/img/destacado.png" alt="discusion" height="24" width="25" >Discusiones destacadas</a>
+            
+        <a href="/foro/?tab=latest"  {% if barra_foro == 'latest' %}class='selected'{% endif %}><img src="/files/img/visto.png" alt="destacadas" height="24" width="25">Ultimas discusiones</a>
+            
+        <a class="btn" href="/foro/questions/ask/" style="float:right;width:120px"><img src="/files/img/plus.png" alt="add foro" height="24" width="25"> Crear un foro</a>
+    </div>
+
+    <div class="question_list">
+        {% for question in questions %}
+        <div class="question">
+            <div class="left">
+                {%if question.answer_set.all.count == 0 %}
+                    <div class="num_respuestas-red">{{question.answer_set.all.count}}</div>
+                    <div class="respuestas-red">
+                        RESPUESTAS
+                    </div>
+                {%else%}
+                    <div class="num_respuestas">{{question.answer_set.all.count}}</div>
+                    <div class="respuestas">
+                        RESPUESTAS
+                    </div>
+                {%endif%}
+            </div>
+            <div class="left">
+                <div class="num_clicks">{{question.views}}</div>
+                <div class="clicks">VISTAS</div> 
+            </div>
+            <div class="titulo-foro"><a href="./questions/{{question.id}}/" title="{{question.question}}">{{question.question}}</a></div>
+
+            <div class="tags">{% for tag in question.get_tags %}<a href="/foro/tagged/{{tag.name}}">{{tag.name}}</a>{% endfor %}</div>
+            <div class="clean"></div>
+            <div class="publicadop">
+                {% if tab == 'latest' %}
+                Creado hace {{question.date_created|timesince}}
+                por <a href="">{{question.user}}</a>
+                {% else %}
+                {% if question.last_answer %}
+                Respuesta hace {{question.last_answer.fecha|timesince}}
+                por <a href="">{{question.last_answer.user}}</a>
+                {% else %}
+                Creado hace {{question.date_created|timesince}}
+                por <a href="">{{question.user}}</a>
+                {% endif %}
+                {% endif %}
+            </div>
+            <div class="clean"></div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
