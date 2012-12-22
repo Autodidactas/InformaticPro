@@ -321,8 +321,36 @@ article.talleres-domingo p {
     box-sizing: border-box; 
 }
 
+.comunidades
+{
+    background: #dfd;
+    position: fixed;
+    height: 2em;
+    width: 3.5em;
+}
+
 .talleres-pasados article h1:hover {
     text-decoration: underline;
+}
+
+figure{
+    margin-top: 1em;
+    background: rgba(0,0,0,0.8);
+    text-align: left;
+    font-size: 1.5em ;
+    padding: .5em;
+    border-top-left-radius:8px ;
+    border-bottom-left-radius: 8px;
+}
+
+figure img{
+    width: 15%;
+    margin-right: 1.5em;
+}
+
+figure img, figure figcaption
+{
+    display: inline-block;
 }
 
 /*

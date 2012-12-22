@@ -29,3 +29,10 @@ def detalle(request, slug):
 	video = get_object_or_404(Videos, slug=slug)
 	return render_to_response('videos/video_detail.html', locals(),
 							   context_instance=RequestContext(request))
+
+def comunidades(request):
+	comus = ComunidadAmiga.objects.all()
+	
+	return render_to_response('comunidades.html', locals(),
+						context_instance=RequestContext(request))
+

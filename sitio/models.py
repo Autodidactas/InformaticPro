@@ -54,6 +54,14 @@ class Social(models.Model):
 
 	class Meta:
 		verbose_name_plural = "Social"
+
+class Ponente(models.Model):
+	nombre	= models.CharField(max_length=100)
+	cuenta = models.CharField(max_length=100)
+
+	def __unicode__(self):
+		return u"%s - %s" % (self.nombre, self.cuenta)
+
 		
 class Videos(models.Model):
 	titulo = models.CharField(max_length=200, null=True, blank=True)
@@ -64,7 +72,7 @@ class Videos(models.Model):
 	tags = TagAutocompleteField("Tags",help_text='Separar elementos con "," ', null=True, blank=True)
 	categoria = models.ForeignKey(Categoria, null=True, blank=True)
 	curso = models.ForeignKey(Cursos, null=True, blank=True)
-	usuario = models.ForeignKey(User)
+	usuario = models.ForeignKey(Ponente)
 	portada = models.BooleanField()
 
 	def __unicode__(self):
@@ -83,12 +91,13 @@ class Videos(models.Model):
 def get_file_path(intance,filename):
 	return os.path.join(intance.fileDir, filename)
 
+
 class Talleres(models.Model):
 	titulo = models.CharField(max_length=250)
 	descripcion = models.TextField()
 	arte = models.ImageField(upload_to=get_file_path)
 	proximo = models.BooleanField()
-	ponente = models.ForeignKey(User)
+	ponente = models.ForeignKey(Ponente)
 	fileDir = 'imgportadas/'
 
 	def __unicode__(self):
@@ -97,12 +106,14 @@ class Talleres(models.Model):
 	class Meta:
 		verbose_name_plural = "Talleres"
 
+
+
 class EnVivo(models.Model):
     titulo = models.CharField(max_length=200, null=True, blank=True)
     url_video = models.CharField(max_length=200)
     url_chat = models.CharField(max_length=200)
     en_vivo = models.BooleanField()
-    ponente = models.ForeignKey(User)
+    ponente = models.ForeignKey(Ponente)
 
     class Meta:
         verbose_name = 'EnVivo'
@@ -110,3 +121,17 @@ class EnVivo(models.Model):
 
     def __unicode__(self):
         return self.url_chat
+
+
+class ComunidadAmiga(models.Model):
+	nombre = models.CharField(max_length=100)
+	fundador = models.CharField(max_length=100)
+	descripcion = models.TextField()
+	url_pag = models.CharField(max_length=200)
+	logo = models.ImageField(upload_to=get_file_path)
+	fileDir = 'logocomus/'
+
+
+	def __unicode__(self):
+		return self.nombre
+
