@@ -14,9 +14,10 @@ Todo tecnologÃ­a." />
 
         <link rel="canonical" href="http://autodidact.as/" />
         <link rel="shortcut icon" href="{{STATIC_URL}}/favicon.ico">
-        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css" />
+        <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css" />                
         <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css" />
-        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.1.min.js"></script>
+        <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.1.min.js"></script>        
+        <script src="{{STATIC_URL}}js/prefixfree.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
         <script src="{{STATIC_URL}}js/jquery.scountdown.js" type="text/javascript"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
@@ -96,7 +97,7 @@ Todo tecnologÃ­a." />
 
     	<!-- Hacer aqui icono para comunidades amigas -->
     	<div class="comunidades">
-    		<a href="/comunidades">ComAmi</a>
+    		<p><a href="/comunidades">Comunidades <span class="oculta">Amigas</span></a></p>
     	</div>
 
     		<div class="contenedor"><!-- CONTENEDOR -->
@@ -178,15 +179,14 @@ Todo tecnologÃ­a." />
 				<h3 class="verde-agua">Talleres pasados</h3>
 				<section class="conte-videos">
 					{% for pasado in pasados %}
-				<article>
-					<a href="{{pasado.get_absolute_url}}">
-						<img src="{{pasado.url|magicthumbnail}}" alt="{{pasado.titulo}}" width="100%" height="36.3%" />
-						<h1>{{pasado.titulo}}</h1>
-					</a>
-					<p class="hidden">{{pasado.descripcion|striptags|truncatewords:9}}</p>
-				</article>
-				
-			{% endfor %}
+						<article>
+							<a href="{{pasado.get_absolute_url}}">
+								<img src="{{pasado.url|magicthumbnail}}" alt="{{pasado.titulo}}" width="100%" height="36.3%" />
+								<h1>{{pasado.titulo}}</h1>
+							</a>
+							<p class="hidden">{{pasado.descripcion|striptags|truncatewords:9}}</p>
+						</article>
+					{% endfor %}
 				</section>
 				
 			</div><!-- /TALLERES-PASADOS -->
