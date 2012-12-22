@@ -3,19 +3,27 @@
 {% load magicembed_tags %}
 
 {% block contenido %}
-	<section >
-		<h2 class="verde-agua">Comunidades Amigas</h2>
-		<ul>
-			{% for com in comus %}
-			<li>
-				<figure>
-					<img src="/uploads/{{com.logo}}" alt="logo">
-					<figcaption><a target="__blank" href="{{com.url_pag}}">{{ com.nombre }} </a> <br>{{com.descripcion }} <br>fundada por <a target="__blank" href="http://twitter.com/{{ com.fundador }}">{{com.fundador}}</a></figcaption>
-				</figure>
-			</li>
-			{% endfor %}
-		</ul>
-	</section>
-		
+
+	<section class="comuni">		
+			<h2 class="verde-agua titlecomu">Comunidades Amigas</h2>
+
+		{% for com in comus %}
+
+			<article class="liCom">
+				<div class="image image-content">
+				    <a href="{{com.url_pag}}" target="__blank">
+				        <img src="/uploads/{{com.logo}}" alt="" width="160">
+				    </a>
+				</div>
+				<div class="item-info">
+					<h3><strong>{{ com.nombre }}</strong></h3>
+					<p>{{com.descripcion }}</p>
+					<p>Fundada por <a target="__blank" href="http://twitter.com/{{ com.fundador }}" target="__blank">{{com.fundador}}</a></p>
+				</div>
+			</article >
+
+		{% endfor %}
+
+	</section>	
 	
 {% endblock contenido %}
