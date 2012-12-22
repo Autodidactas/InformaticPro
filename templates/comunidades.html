@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% load magicembed_tags %}
+
+{% block contenido %}
+	<section >
+		<h2 class="verde-agua">Comunidades Amigas</h2>
+		<ul>
+			{% for com in comus %}
+			<li>
+				<figure>
+					<img src="/uploads/{{com.logo}}" alt="logo">
+					<figcaption><a target="__blank" href="{{com.url_pag}}">{{ com.nombre }} </a> <br>{{com.descripcion }} <br>fundada por <a target="__blank" href="http://twitter.com/{{ com.fundador }}">{{com.fundador}}</a></figcaption>
+				</figure>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+		
+	
+{% endblock contenido %}

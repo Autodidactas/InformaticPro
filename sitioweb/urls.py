@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^foro/', include('askbotmini.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
+    url(r'^comunidades/', 'sitio.views.comunidades'),
 
 )
 
