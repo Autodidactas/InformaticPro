@@ -24,7 +24,10 @@ urlpatterns = patterns('',
 
 )
 
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+handler404 = 'sitioweb.views.file_not_found_404'
+
+handler500 = 'sitioweb.views.file_not_found_500'
+
 urlpatterns += staticfiles_urlpatterns()
 
 if DEBUG:
