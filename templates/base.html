@@ -13,27 +13,15 @@ Todo tecnologÃ­a." />
         <meta name="viewport" content="width=device-width" />
 
         <link rel="canonical" href="http://autodidact.as/" />
-        <link rel="shortcut icon" href="{{STATIC_URL}}/favicon.ico">
+        <link rel="shortcut icon" href="{{STATIC_URL}}/favicon.ico" />
         <link rel="stylesheet" href="{{STATIC_URL}}css/normalize.css" />                
         <link rel="stylesheet" href="{{STATIC_URL}}css/styles.css" />
         <script src="{{STATIC_URL}}js/vendor/modernizr-2.6.1.min.js"></script>        
         <script src="{{STATIC_URL}}js/prefixfree.min.js"></script>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
         <script src="{{STATIC_URL}}js/jquery.scountdown.js" type="text/javascript"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
-        <script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-36899527-1']);
-		  _gaq.push(['_setDomainName', 'autodidact.as']);
-		  _gaq.push(['_setAllowLinker', true]);
-		  _gaq.push(['_trackPageview']);
-		
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();		
-	</script>
 	
         {% block extra_header %}{% endblock extra_header %}
 
@@ -99,7 +87,7 @@ Todo tecnologÃ­a." />
 
 <body>
 		<!--[if lt IE 7]>
-    	<p class="navegador-antiguo">Estas usando un Navegador Obsoleto. <a href="http://browsehappy.com/">Actualice su Navegador ahora</a> or <a href="http://www.google.com/chromeframe/?redirect=true">instale Google Chrome Frame</a> para una mejor experiencia del sitio.</p>
+    	<p class="navegador-antiguo">Estas usando un Navegador Obsoleto. <a href="http://browsehappy.com/">Actualice su Navegador ahora</a> o <a href="http://www.google.com/chromeframe/?redirect=true">instale Google Chrome Frame</a> para una mejor experiencia del sitio.</p>
     	<![endif]-->
 
     	<!-- Hacer aqui icono para comunidades amigas -->
@@ -163,30 +151,30 @@ Todo tecnologÃ­a." />
 
 			{% endblock cabecera %}
 		
-		<div class="contenido box-sizing clearfix" role="main"><!-- CONTENIDO -->
- {% load magicembed_tags %}
-	{% block contenido %}
-		{% for taller in primervideo %}
-			<article class="talleres-domingo"><!-- TALLERES-DOMINGO -->
-				<div class="imagen-video-taller">
-					<a href="{{taller.get_absolute_url}}"><img src="{{taller.url|magicthumbnail}}" alt="" /></a>
-					<div class="sombra-caja"></div>
-				</div>
-				<span class="verde-agua">Taller:</span>
-				<h1>{{taller.titulo}}</h1>
-				<span class="verde-agua">Descripción:</span>
-				<p>{{taller.descripcion|striptags|truncatewords:15}}</p>
-				<span class="verde-agua">Tags:</span>
+			<div class="contenido box-sizing clearfix" role="main"><!-- CONTENIDO -->
+			{% load magicembed_tags %}
+			{% block contenido %}
+				{% for taller in primervideo %}
+				<article class="talleres-domingo"><!-- TALLERES-DOMINGO -->
+					<div class="imagen-video-taller">
+						<a href="{{taller.get_absolute_url}}"><img src="{{taller.url|magicthumbnail}}" alt="" /></a>
+						<div class="sombra-caja"></div>
+					</div>
+					<span class="verde-agua">Taller:</span>
+					<h1>{{taller.titulo}}</h1>
+					<span class="verde-agua">Descripción:</span>
+					<p>{{taller.descripcion|striptags|truncatewords:15}}</p>
+					<span class="verde-agua">Tags:</span>
 					<p>{{taller.tags}}</p>
-				<span class="verde-agua">Ponente:</span>
+					<span class="verde-agua">Ponente:</span>
 					<h1>{{taller.usuario}}</h1>
-			</article><!-- /TALLERES-DOMINGO -->
-		{% endfor %}
+				</article><!-- /TALLERES-DOMINGO -->
+				{% endfor %}
 			
-			<div class="talleres-pasados"><!-- TALLERES-PASADOS -->
-				<h3 class="verde-agua">Talleres pasados</h3>
-				<section class="conte-videos">
-					{% for pasado in pasados %}
+				<div class="talleres-pasados"><!-- TALLERES-PASADOS -->
+					<h3 class="verde-agua">Talleres pasados</h3>
+					<section class="conte-videos">
+						{% for pasado in pasados %}
 						<article>
 							<a href="{{pasado.get_absolute_url}}">
 								<img src="{{pasado.url|magicthumbnail}}" alt="{{pasado.titulo}}" width="100%" height="36.3%" />
@@ -194,25 +182,35 @@ Todo tecnologÃ­a." />
 							</a>
 							<p class="hidden">{{pasado.descripcion|striptags|truncatewords:9}}</p>
 						</article>
-					{% endfor %}
-				</section>
-				
-			</div><!-- /TALLERES-PASADOS -->
-
-	{% endblock contenido %}
-
+						{% endfor %}
+					</section>
+				</div><!-- /TALLERES-PASADOS -->
+			{% endblock contenido %}
 			</div><!-- /CONTENIDO -->
 
-			<footer role="contentinfo"><!-- PIE -->
-				<p>Gracias a todos los que hacen posible la comunidad #Autodidactas <span><a href="http://twitter.com/autodidact_as" target="_black">Twitter</a> · <a href="http://www.facebook.com/informaticpro" target="_blank">Facebook</a> · <a href="http://gplus.to/autodidactas" target="_blank">Google+</a> · <a tarjet="_blank" href="//www.youtube.com/subscription_center?add_user_id=GxbS4MKVPC8FjMaQdgFpQQ&feature=creators_cornier-//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_61x23_red.png" >Youtube</a></span></p>
+			<footer class="clearfix" role="contentinfo"><!-- PIE -->
+				<p><a href="http://twitter.com/autodidact_as" target="_black">Twitter</a> · <a href="http://www.facebook.com/informaticpro" target="_blank">Facebook</a> · <a href="http://gplus.to/autodidactas" target="_blank">Google+</a> · <a tarjet="_blank" href="//www.youtube.com/subscription_center?add_user_id=GxbS4MKVPC8FjMaQdgFpQQ&feature=creators_cornier-//s.ytimg.com/yt/img/creators_corner/Subscribe_to_my_videos/YT_Subscribe_61x23_red.png" >Youtube</a> <span>Gracias a todos los que hacen posible la comunidad #Autodidactas </span></p>
 			</footer><!-- /PIE -->
 
 		</div><!--  /CONTENEDOR-->
 
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="{{STATIC_URL}}js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
+
         <script src="{{STATIC_URL}}js/plugins.js"></script>
         <script src="http://platform.twitter.com/widgets.js"></script>
-        <script src="{{STATIC_URL}}js/main.js"></script>
+        <script src="{{STATIC_URL}}js/maestro.js"></script>
+        <!-- Google Analytics -->
+        <script type="text/javascript">
+		  	var _gaq = _gaq || [];
+		  	_gaq.push(['_setAccount', 'UA-36899527-1']);
+		  	_gaq.push(['_setDomainName', 'autodidact.as']);
+		  	_gaq.push(['_setAllowLinker', true]);
+		  	_gaq.push(['_trackPageview']);
+		
+		  	(function() {
+		    	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    	ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+		    	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  	})();		
+		</script>
 	</body>
 </html>

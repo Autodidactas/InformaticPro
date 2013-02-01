@@ -17,7 +17,7 @@ window.___gcfg = {lang: 'es-419'};
 }(document, 'script', 'facebook-jssdk'));
 
 // DISQUS
-var disqus_shortname = 'felixricarb';
+var disqus_shortname = 'autodidactas';
 (function() {
 	var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

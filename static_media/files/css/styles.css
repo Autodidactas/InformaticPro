@@ -202,17 +202,18 @@ header hgroup h1 a {
     display: inline-block;
     margin: 0 40px -20px 0;
 }
-
-.botones-compartir ul li:nth-child(3n) {margin-right: 0;}
-/* Felix Barros:
- * El problema del margen fue soluciónado.
-.botones-compartir ul li div.fb-like { margin-bottom: 7px; }*/
+/** 
+ * Felix Barros:
+ * La siguiente line quita los margenes a los botones de twitter, facebok y google plus.
+ */
+.botones-compartir ul li:nth-child(3n) { margin-right: 0; }
 
 
 /* CONTENIDO */
 .contenido {
-    background: url("../img/background_container.gif");
-    padding: 20px 10px;
+    background: #FFFFFF url("../img/background_container.gif");
+    padding: 10px 10px 40px 10px;
+    height: 100%;
 }
 
 /* Los siguientes estilos son para los Talleres de domingo. */
@@ -358,10 +359,12 @@ article.talleres-domingo p {
 footer {
     background: #363736;
     color: #fff;
-    line-height: 1.5em;
+    /*line-height: 1.5em;*/
+    line-height: 0;
     font-size: 1.3em;
     text-align: left;
     padding: 0 10px;
+    margin-bottom: 20px;
 }
 
 footer p span {
@@ -475,7 +478,7 @@ footer p span {
 
 /*
  * BOX-SIZING
- * Esta clase permite se aplica a los elemento que tengan padding.
+ * Esta clase permite ser aplicada a los elemento que tengan padding.
  */
 .box-sizing {
     -moz-box-sizing: border-box;
@@ -609,6 +612,9 @@ footer p span {
      .imagen-video-taller{
        width: 100%;
     }
+    footer p span{
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -627,7 +633,6 @@ footer p span {
    .conte-videos article{
         width: 40%;
    }
-    
 }
 
 @media  screen and (max-width: 480px){
