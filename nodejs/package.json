@@ -1,0 +1,14 @@
+{
+  "name": "envivo",
+  "subdomain": "samuelb1311.nodejs",
+  "scripts": {
+    "start": "app.js"
+  },
+  "version": "0.0.0-1",
+  "engines": {
+    "node": "0.8.x"
+  },
+  "dependencies": {
+    "socket.io": "*"
+  }
+}

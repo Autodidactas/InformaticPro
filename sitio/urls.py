@@ -11,6 +11,7 @@ urlpatterns = patterns('sitio.views',
 			#											   ),name="detalle-videos"),
 			url(r'^(?P<slug>[-\w]+)/$', 'detalle', name="detalle-videos"),
 			
+			
                 
 
     )

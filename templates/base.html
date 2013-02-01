@@ -77,20 +77,27 @@ Todo tecnologÃ­a." />
 		});
 		</script>
 
-		<script type="text/JavaScript">
-			<!--
-		if ({{tiempo}} === 1){
-			function AutoRefresh() {
-				window.location.reload(true);
-				console.log({{tiempo}})
-			}
-		}
-		//   -->
+		<script type="text/javascript" src="http://173.0.57.26:8008/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			var socket = io.connect('http://173.0.57.26:8008');
+			socket.on('isLive', function(data){
+				document.documentElement.innerHTML = '';
+				document.documentElement.innerHTML += data;
+			});
+			$(document).ready(function(){
+				$('#changeToLive').bind('click', function(){
+					$.get('/poner_en_vivo/', function(data){
+						if (data.exito){
+							socket.emit('enVivo');
+						}
+					});
+				});
+			});
 		</script>
 
 	</head>
 
-<body {%if tiempo == 1%}onload="JavaScript:AutoRefresh();" {%else%} {%endif%}>
+<body>
 		<!--[if lt IE 7]>
     	<p class="navegador-antiguo">Estas usando un Navegador Obsoleto. <a href="http://browsehappy.com/">Actualice su Navegador ahora</a> or <a href="http://www.google.com/chromeframe/?redirect=true">instale Google Chrome Frame</a> para una mejor experiencia del sitio.</p>
     	<![endif]-->
@@ -121,6 +128,7 @@ Todo tecnologÃ­a." />
 					{% endfor %}
 
 					<aside class="info-banner">
+						{% if user.is_superuser %}<button id="changeToLive">Poner en VIVO!</button>{% endif %}
 					{% for taller in portada %}
 						<h3>{{taller.titulo}}</h3>
 						<time>Domingo <span id="hora" class="big"> 11:00AM GMT-6</span> <span class="pais"></span></time>

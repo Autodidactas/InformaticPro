@@ -16,6 +16,8 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^$', 'sitio.views.index'),
+    url(r'^poner_en_vivo/$', 'sitio.views.ponerEnVivo'),
+    url(r'^vivoTemplate/$', 'sitio.views.vivoTemplate'),
     url(r'^sitio/', include('sitio.urls')),
     url(r'^foro/', include('askbotmini.urls')),
     url(r'^admin/', include(admin.site.urls)),

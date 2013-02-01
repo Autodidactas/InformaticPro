@@ -2,7 +2,9 @@
 
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.http import HttpResponse
 from sitio.models import *
+import simplejson as json
 # Create your views here.
 
 def index(request):
@@ -22,6 +24,15 @@ def index(request):
 	return render_to_response('base.html', locals(),
 							   context_instance=RequestContext(request))
 
+def vivoTemplate(request):
+	vivo = EnVivo.objects.filter(en_vivo=True)
+	return render_to_response('vivo.html', locals(), context_instance=RequestContext(request))
+
+def ponerEnVivo(request):
+	vivo = EnVivo.objects.all().order_by('-id')[0]
+	vivo.en_vivo = True
+	vivo.save()
+	return HttpResponse(json.dumps({'exito':True}), mimetype='application/json')
 
 def detalle(request, slug):
 	''' funcion que devuelve el video seleccionado '''
